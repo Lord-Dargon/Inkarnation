@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://b15qowanxn68w"]
+
+[ext_resource type="Script" uid="uid://b8aokhjatrb43" path="res://Scripts/pixel.gd" id="1_ptkfl"]
+
+[node name="Pixel_1" type="ColorRect"]
+custom_minimum_size = Vector2(8, 8)
+color = Color(0.176419, 0.176419, 0.176419, 1)
+script = ExtResource("1_ptkfl")
+Foreground_Color = Color(1, 1, 1, 1)
+Background_Color = Color(0.176471, 0.176471, 0.176471, 1)
+
+[connection signal="mouse_entered" from="." to="." method="on_mouse_enter"]
+[connection signal="mouse_exited" from="." to="." method="on_mouse_exit"]
