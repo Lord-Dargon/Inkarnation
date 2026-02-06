@@ -11,3 +11,4 @@ res://Prefabs/pixel.tscn
 res://Scripts/level_controller.gd
 res://Scripts/ink.gd
 res://Scripts/ink_stock_meter.gd
+res://Scripts/draw_success.gd
