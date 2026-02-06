@@ -2,6 +2,7 @@ extends CanvasLayer
 @onready var canvas_button: Button = $Canvas_Button
 @onready var drawing_canvas: Window = $"Drawing Canvas"
 @onready var win_screen: CenterContainer = $Win_Screen
+@onready var ink_stock_meter: HBoxContainer = $Ink_Stock_Meter
 
 
 # Called when the node enters the scene tree for the first time.

@@ -1,11 +1,13 @@
 extends CharacterBody2D
 
+var ink_stocks:int = 1
 
 @export var SPEED = 200.0
 
 @export var tags:Array[String]
 
 func _ready() -> void:
+	Client.player_object = self
 	Update_Tags()
 
 func _physics_process(delta: float) -> void:
