@@ -1,0 +1,18 @@
+[gd_scene load_steps=2 format=3 uid="uid://b6mg25d1ghqnw"]
+
+[ext_resource type="Script" uid="uid://b8aokhjatrb43" path="res://Scripts/pixel.gd" id="1_2dl8l"]
+
+[node name="Drawing Canvas" type="Node2D"]
+
+[node name="Pixels" type="GridContainer" parent="."]
+offset_right = 68.0
+offset_bottom = 68.0
+theme_override_constants/h_separation = 0
+theme_override_constants/v_separation = 0
+columns = 8
+
+[node name="Pixel_1" type="ColorRect" parent="Pixels"]
+custom_minimum_size = Vector2(10, 10)
+layout_mode = 2
+color = Color(0, 0, 0, 1)
+script = ExtResource("1_2dl8l")
