@@ -46,7 +46,7 @@ func on_clear():
 func _on_finish_pressed():
 	var image = return_current_image()
 	Client.send_command(image)
-	
+	Client.player_object.ink_stocks -= 1
 	
 func set_brush_small():
 	brush_size = 8.0
