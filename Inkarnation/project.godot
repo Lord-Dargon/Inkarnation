@@ -18,7 +18,6 @@ config/icon="res://icon.svg"
 [autoload]
 
 Client="*res://Scripts/client.gd"
-LevelController="*res://Scripts/level_controller.gd"
 
 [display]
 
@@ -26,10 +25,6 @@ window/size/viewport_width=1920
 window/size/viewport_height=1080
 window/stretch/mode="canvas_items"
 window/stretch/scale_mode="integer"
-
-[global_group]
-
-Goal=""
 
 [input]
 
