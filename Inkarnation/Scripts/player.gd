@@ -2,33 +2,28 @@ extends CharacterBody2D
 
 
 @export var SPEED = 200.0
+
 @export var tags:Array[String]
-var player_name = "OG Name"
-
-
-func set_tags(tag):
-	print("New Tag ", tag)
-	tags = tag
 
 func _ready() -> void:
-	print(collision_mask)
-	Client.player_object = self
+	Update_Tags()
 
 func _physics_process(delta: float) -> void:
 	
-	if "Water" in tags:
-		collision_mask = collision_mask
-	
 	if Input.is_action_just_pressed("Pause"):
-		
 		get_tree().quit()
 		
 	var direction = Vector2(Input.get_axis("Left", "Right"), Input.get_axis("Up", "Down")).normalized()
 	if direction:
 		velocity = direction * SPEED
 	else:
-		velocity.x = move_toward(velocity.x, 0, SPEED)
-		velocity.y = move_toward(velocity.y, 0, SPEED)
+		velocity.x = move_toward(velocity.x, 0, SPEED/5)
+		velocity.y = move_toward(velocity.y, 0, SPEED/5)
 
 	move_and_slide()
-	
+
+func Update_Tags():
+	if "Water" in tags:
+		set_collision_mask_value(7,false)
+	else:
+		set_collision_mask_value(7,true)
