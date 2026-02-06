@@ -32,9 +32,14 @@ func return_current_image() -> Array[bool]:
 	return image
 
 
-func _on_close_requested() -> void:
+func manual_close() -> void:
 	hide()
 	draw_success.show_self()
+	
+
+
+func _on_close_requested() -> void:
+	hide()
 	pass # Replace with function body.
 
 

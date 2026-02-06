@@ -94,7 +94,7 @@ func process_command(string_data: String) -> void:
 		
 	# Hide canvas
 	if canvas_object:
-		canvas_object._on_close_requested()
+		canvas_object.manual_close()
 
 
 

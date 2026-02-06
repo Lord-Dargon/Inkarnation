@@ -1,4 +1,4 @@
-extends Node2D
+extends Window
 
 @onready var sprite = $Sprite2D
 @onready var label = $Label
@@ -15,3 +15,7 @@ func show_self():
 	label.text = "You are ... " + Client.player_object.player_name
 	
 	show()
+	
+
+func _on_close_requested() -> void:
+	hide()
