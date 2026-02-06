@@ -6,7 +6,7 @@
 [node name="Drawing Canvas" type="Window"]
 title = "Canvas"
 position = Vector2i(640, 140)
-size = Vector2i(512, 600)
+size = Vector2i(1024, 1200)
 transient = true
 unresizable = true
 content_scale_mode = 2
@@ -34,7 +34,7 @@ theme_override_font_sizes/font_size = 25
 text = "Clear
 "
 
-[node name="Canvas" type="GridContainer" parent="." groups=["Goal"]]
+[node name="Canvas" type="GridContainer" parent="."]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -48,7 +48,8 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/h_separation = 0
 theme_override_constants/v_separation = 0
-columns = 64
+columns = 128
 
 [connection signal="close_requested" from="." to="." method="_on_close_requested"]
+[connection signal="pressed" from="Finish" to="." method="_on_finish_pressed"]
 [connection signal="pressed" from="Clear" to="." method="on_clear"]
