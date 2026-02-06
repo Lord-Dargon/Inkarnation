@@ -5,8 +5,6 @@ extends Area2D
 
 
 func _ready() -> void:
-	LevelController.goal = self
-	
 	if active == false:
 		modulate.a = 0.5
 		collision_shape_2d.disabled = true

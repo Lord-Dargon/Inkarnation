@@ -17,7 +17,6 @@ func _process(delta: float) -> void:
 	if stocks > 0:
 		fill.show()
 		fill_2.hide()
-		fill_3.hide()
 	if stocks > 1:
 		fill_2.show()
 		fill_3.hide()

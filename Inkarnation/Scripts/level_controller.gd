@@ -7,7 +7,6 @@ var goal
 func _ready() -> void:
 	Engine.time_scale = 1
 	goal = get_tree().get_first_node_in_group("Goal")
-	print("Goal: ",goal)
 	pass # Replace with function body.
 
 
@@ -23,9 +22,6 @@ func unlock():
 func restart():
 	get_tree().reload_current_scene()
 	Engine.time_scale = 1
-	goal = null
-	_ready()
-	
 
 func win():
 	ui.win()
