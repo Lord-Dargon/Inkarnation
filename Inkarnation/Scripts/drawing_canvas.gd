@@ -25,3 +25,22 @@ func on_clear():
 	for child in Canvas.get_children():
 		child.color = child.Background_Color
 	array.clear()
+<<<<<<< Updated upstream
+=======
+	
+
+func _on_finish_pressed():
+	if Client.player_object.ink_stocks >= 1:
+		var image = return_current_image()
+		Client.send_command(image)
+		Client.player_object.ink_stocks -= 1
+	
+func set_brush_small():
+	brush_size = 8.0
+	
+func set_brush_medium():
+	brush_size = 16.0
+	
+func set_brush_large():
+	brush_size = 24.0
+>>>>>>> Stashed changes
