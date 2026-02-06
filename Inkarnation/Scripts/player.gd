@@ -2,11 +2,17 @@ extends CharacterBody2D
 
 
 @export var SPEED = 200.0
-
 @export var tags:Array[String]
+var player_name = "OG Name"
+
+
+func set_tags(tag):
+	print("New Tag ", tag)
+	tags = tag
 
 func _ready() -> void:
 	print(collision_mask)
+	Client.player_object = self
 
 func _physics_process(delta: float) -> void:
 	
