@@ -16,6 +16,3 @@ func _process(delta: float) -> void:
 func on_canvas_button_pressed() -> void:
 	drawing_canvas.show()
 	pass # Replace with function body.
-
-func win():
-	print("Won")
