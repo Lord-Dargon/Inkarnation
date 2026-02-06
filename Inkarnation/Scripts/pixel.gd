@@ -10,11 +10,12 @@ var value = 0
 
 var location:Vector2
 
-func on_mouse_enter():
-	active = true
 
-func on_mouse_exit():
-	active = false
+func _process(_delta):
+	var mouse_pos = get_global_mouse_position()
+	var dist = global_position.distance_to(mouse_pos)
+
+	active = dist <= get_parent().get_parent().brush_size
 
 
 
@@ -33,3 +34,5 @@ func _input(event: InputEvent) -> void:
 		
 func get_current_value() -> int:
 	return value
+	
+	

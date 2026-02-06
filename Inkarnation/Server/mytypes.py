@@ -11,4 +11,9 @@ class Drawing:
     armor: bool
     fly: bool
     swim: bool
+
+    fire_resistant: bool
+    strength: int
+    speed: int
+    weight: int
     

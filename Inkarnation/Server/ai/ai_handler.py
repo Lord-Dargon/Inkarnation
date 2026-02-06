@@ -8,6 +8,11 @@ import numpy as np
 from PIL import Image
 from dataclasses import asdict
 
+import tools
+
+
+
+
 
 class AIHandler:
     """
@@ -26,7 +31,15 @@ class AIHandler:
 
         prompt = f"""
 The following is a sketch of something. Give the name of the object, a 3 sentence description of the phsyical traits the object has, and determine 
-if the object is capable of flight, swimming, or has armor.
+if the object is capable of flight, swimming, or has armor. Also determine if the object has the following additional attrbutes:
+
+Fire-Resistant
+
+Strength (value from 1-3): 1 = weak (like a bat), 2 = moderate (like a human), 3 = strong (like a rhino)
+
+Speed (value from 1-5): 1 = very slow (like a turtle), 2 = slow (like a human), 3 = moderate (like a dog), 4 = fast (like a horse), 5 = very fast (like a cheetah)
+
+Weight (value from 1-3): 1 = light (like a cat), 2 = moderate (like a human), 3 = heavy (like an elephant)
 """
         
         class OutputStrucure(BaseModel):
@@ -45,6 +58,18 @@ if the object is capable of flight, swimming, or has armor.
             has_armor: bool = Field(
                 description="Whether the object has armor"
             )
+            is_fire_resistant: bool = Field(
+                description="Whether the object is fire resistant"
+            )
+            strength: int = Field(
+                description="Strength level of the object (1=weak, 2=moderate, 3=strong)"
+            )
+            speed: int = Field(
+                description="Speed level of the object (1=very slow, 2=slow, 3=moderate, 4=fast, 5=very fast)"
+            )
+            weight: int = Field(
+                description="Weight level of the object (1=light, 2=moderate, 3=heavy)"
+            )
 
         response = await self.tti_handler.query(prompt=prompt, structure=OutputStrucure, image_filename=image_path)
         print("------------- Response:\n",response)
@@ -54,7 +79,11 @@ if the object is capable of flight, swimming, or has armor.
             desc=response.get("description", "ERR"),
             fly=response.get("can_fly", False),
             swim=response.get("can_swim", False),
-            armor=response.get("has_armor", False)
+            armor=response.get("has_armor", False),
+            fire_resistant=response.get("is_fire_resistant", False),
+            strength=response.get("strength", 1),
+            speed=response.get("speed", 1),
+            weight=response.get("weight", 1)
         )
 
         return new_drawing
@@ -83,10 +112,10 @@ if the object is capable of flight, swimming, or has armor.
 
         os.makedirs("image", exist_ok=True)
 
-        img = Image.fromarray(img_np, mode="L")  # L = grayscale
+        img = tools.make_edge_black_transparent(img_np, black_value=0)
         img.save("image/this_image.png")
 
-        game_object = await self.get_initial_drawing_object("image/this_image.png")
+        game_object = await self.get_initial_drawing_object(os.path.join("image","this_image.png"))
         game_dict = asdict(game_object)
 
         return game_dict

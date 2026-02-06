@@ -35,7 +35,7 @@ class TTIHandler:
         load_dotenv()
 
         self.url: str = "https://openrouter.ai/api/v1/chat/completions"
-        self.api_key = "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"
+        self.api_key = ""
         self.provider: str = provider
         self.model: str = model
 
@@ -176,22 +176,18 @@ class TTIHandler:
             data = await self._post_with_retries(session, payload)
 
 
-        try:
-            choices = data.get("choices") or []
-            if not choices or not isinstance(choices, list):
-                raise KeyError("No choices returned")
+        choices = data.get("choices") or []
+        if not choices or not isinstance(choices, list):
+            raise KeyError("No choices returned")
 
-            first = choices[0]
-            message = first.get("message") if isinstance(first, dict) else None
-            content = message.get("content") if isinstance(message, dict) else None
-            if not content or not isinstance(content, str):
-                raise KeyError("Could not find choices[0].message.content")
+        first = choices[0]
+        message = first.get("message") if isinstance(first, dict) else None
+        content = message.get("content") if isinstance(message, dict) else None
+        if not content or not isinstance(content, str):
+            raise KeyError("Could not find choices[0].message.content")
 
-            return json.loads(content)
+        return json.loads(content)
 
-        except (KeyError, TypeError, json.JSONDecodeError):
-            print("OpenRouterQuery returned without expected structure.")
-            return {}
 
 
 

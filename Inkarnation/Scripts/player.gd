@@ -3,8 +3,11 @@ extends CharacterBody2D
 
 @export var SPEED = 200.0
 var player_name = "OG Name"
+var player_speed = 3
 
 @export var tags:Array[String]
+
+@onready var player_sprite = $Sprite2D
 
 
 
@@ -12,6 +15,15 @@ func set_tags(tag):
 	print("New Tag ", tag)
 	tags = tag
 	Update_Tags()
+	reload_sprite()
+	
+func reload_sprite():
+	var img := Image.new()
+	img.load("res://Server/image/this_image.png")
+	
+	var tex := ImageTexture.create_from_image(img)
+	player_sprite.texture = tex
+	
 
 func _ready() -> void:
 	Client.player_object = self
