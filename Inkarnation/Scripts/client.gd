@@ -62,6 +62,7 @@ func process_command(string_data: String) -> void:
 	var can_fly = dictionary['fly']
 	var can_swim = dictionary['swim']
 	var has_armor = dictionary['armor']
+	var is_person = dictionary['person']
 	var is_fire_resistant = dictionary['fire_resistant']
 	var strength = dictionary['strength']
 	var speed = dictionary['speed']
@@ -76,6 +77,8 @@ func process_command(string_data: String) -> void:
 		tags.append("Swim")
 	if has_armor:
 		tags.append("Armor")
+	if is_person:
+		tags.append("Person")
 	if is_fire_resistant:
 		tags.append("Fire Resistant")
 	if strength >= 3:

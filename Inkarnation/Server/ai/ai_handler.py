@@ -58,6 +58,9 @@ Weight (value from 1-3): 1 = light (like a cat), 2 = moderate (like a human), 3 
             has_armor: bool = Field(
                 description="Whether the object has armor"
             )
+            is_person: bool = Field(
+                description="Whether the object is a person"
+            )
             is_fire_resistant: bool = Field(
                 description="Whether the object is fire resistant"
             )
@@ -80,6 +83,7 @@ Weight (value from 1-3): 1 = light (like a cat), 2 = moderate (like a human), 3 
             fly=response.get("can_fly", False),
             swim=response.get("can_swim", False),
             armor=response.get("has_armor", False),
+            person=response.get("is_person", False),
             fire_resistant=response.get("is_fire_resistant", False),
             strength=response.get("strength", 1),
             speed=response.get("speed", 1),
