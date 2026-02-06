@@ -1,3 +1,8 @@
-Sprite2D
+Button
+VBoxContainer
+Label
+CenterContainer
+ColorRect
 CollisionShape2D
 Area2D
+Sprite2D

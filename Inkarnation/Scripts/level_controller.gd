@@ -1,9 +1,10 @@
 extends Node
-@onready var ui: CanvasLayer = $UI
 
+var ui
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	Engine.time_scale = 1
 	var goal = get_tree().get_first_node_in_group("Goal")
 	pass # Replace with function body.
 
@@ -16,5 +17,11 @@ func _process(delta: float) -> void:
 func unlock():
 	pass
 
+func restart():
+	get_tree().reload_current_scene()
+	Engine.time_scale = 1
+
 func win():
 	ui.win()
+	Engine.time_scale = 0
+	pass

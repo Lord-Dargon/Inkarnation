@@ -23,7 +23,13 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 
 func Update_Tags():
-	if "Water" in tags:
+	if "Swim" in tags:
 		set_collision_mask_value(7,false)
 	else:
 		set_collision_mask_value(7,true)
+	
+	if "Fly" in tags:
+		pass
+	
+	if "Armor" in tags:
+		pass
