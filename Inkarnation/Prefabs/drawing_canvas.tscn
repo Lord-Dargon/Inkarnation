@@ -1,18 +1,54 @@
-[gd_scene load_steps=2 format=3 uid="uid://b6mg25d1ghqnw"]
+[gd_scene load_steps=3 format=3 uid="uid://b6mg25d1ghqnw"]
 
-[ext_resource type="Script" uid="uid://b8aokhjatrb43" path="res://Scripts/pixel.gd" id="1_2dl8l"]
+[ext_resource type="Script" uid="uid://dgrr2ds56ielo" path="res://Scripts/drawing_canvas.gd" id="1_2dl8l"]
+[ext_resource type="PackedScene" uid="uid://b15qowanxn68w" path="res://Prefabs/pixel.tscn" id="2_52vop"]
 
-[node name="Drawing Canvas" type="Node2D"]
+[node name="Drawing Canvas" type="Window"]
+title = "Canvas"
+position = Vector2i(640, 140)
+size = Vector2i(1024, 1200)
+transient = true
+unresizable = true
+content_scale_mode = 2
+content_scale_aspect = 1
+theme_override_font_sizes/title_font_size = 30
+script = ExtResource("1_2dl8l")
+pixel_prefab = ExtResource("2_52vop")
 
-[node name="Pixels" type="GridContainer" parent="."]
-offset_right = 68.0
-offset_bottom = 68.0
+[node name="Finish" type="Button" parent="."]
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 43.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 25
+text = "Finish"
+
+[node name="Clear" type="Button" parent="."]
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 43.0
+offset_bottom = 86.0
+grow_horizontal = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 25
+text = "Clear
+"
+
+[node name="Canvas" type="GridContainer" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -256.0
+offset_top = -214.0
+offset_right = 256.0
+offset_bottom = 298.0
+grow_horizontal = 2
+grow_vertical = 2
 theme_override_constants/h_separation = 0
 theme_override_constants/v_separation = 0
-columns = 8
+columns = 128
 
-[node name="Pixel_1" type="ColorRect" parent="Pixels"]
-custom_minimum_size = Vector2(10, 10)
-layout_mode = 2
-color = Color(0, 0, 0, 1)
-script = ExtResource("1_2dl8l")
+[connection signal="close_requested" from="." to="." method="_on_close_requested"]
+[connection signal="pressed" from="Clear" to="." method="on_clear"]

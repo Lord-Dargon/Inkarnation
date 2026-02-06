@@ -15,11 +15,16 @@ run/main_scene="uid://blb0vyqowbkls"
 config/features=PackedStringArray("4.4", "Mobile")
 config/icon="res://icon.svg"
 
+[autoload]
+
+Client="*res://Scripts/client.gd"
+
 [display]
 
 window/size/viewport_width=1920
 window/size/viewport_height=1080
-window/size/mode=3
+window/stretch/mode="canvas_items"
+window/stretch/scale_mode="integer"
 
 [input]
 
@@ -62,8 +67,10 @@ Erase={
 [layer_names]
 
 2d_physics/layer_1="Player"
+2d_physics/layer_7="Water"
 2d_physics/layer_8="Wall"
 
 [rendering]
 
+textures/canvas_textures/default_texture_filter=0
 environment/defaults/default_clear_color=Color(0, 0, 0, 1)
