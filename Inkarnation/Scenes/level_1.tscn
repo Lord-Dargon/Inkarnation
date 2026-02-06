@@ -132,10 +132,10 @@ tile_set = SubResource("TileSet_6444e")
 
 [node name="Player" type="CharacterBody2D" parent="."]
 position = Vector2(588, 294)
-collision_mask = 129
+collision_mask = 193
 motion_mode = 1
 script = ExtResource("1_xfk5q")
-tags = Array[String](["Water"])
+tags = Array[String](["Person", "Water"])
 
 [node name="Sprite2D" type="Sprite2D" parent="Player"]
 texture_filter = 1
