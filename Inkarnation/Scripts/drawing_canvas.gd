@@ -3,6 +3,7 @@ extends Window
 @export var pixel_prefab: PackedScene
 
 @onready var Canvas: GridContainer = $Canvas
+@onready var draw_success = $"../DrawSuccess"
 
 var brush_size
 
@@ -33,6 +34,7 @@ func return_current_image() -> Array[bool]:
 
 func _on_close_requested() -> void:
 	hide()
+	draw_success.show_self()
 	pass # Replace with function body.
 
 
@@ -46,7 +48,7 @@ func on_clear():
 func _on_finish_pressed():
 	var image = return_current_image()
 	Client.send_command(image)
-	Client.player_object.ink_stocks -= 1
+	
 	
 func set_brush_small():
 	brush_size = 8.0
