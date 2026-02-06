@@ -115,15 +115,15 @@ size = Vector2(32, 64)
 
 [node name="Level_1" type="Node2D"]
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="Stairs" type="Area2D" parent="." groups=["Goal"]]
 position = Vector2(1666, 471)
 script = ExtResource("7_lsmp6")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-shape = SubResource("RectangleShape2D_xrdnt")
-
-[node name="Stairs" type="Sprite2D" parent="Area2D"]
+[node name="Stairs" type="Sprite2D" parent="Stairs"]
 texture = ExtResource("8_xrdnt")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Stairs"]
+shape = SubResource("RectangleShape2D_xrdnt")
 
 [node name="UI" type="CanvasLayer" parent="."]
 script = ExtResource("1_6444e")
@@ -194,6 +194,6 @@ texture = ExtResource("4_7p6j4")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
 shape = SubResource("RectangleShape2D_xfk5q")
 
-[connection signal="body_entered" from="Area2D" to="Area2D" method="body_entered"]
+[connection signal="body_entered" from="Stairs" to="Stairs" method="body_entered"]
 [connection signal="pressed" from="UI/Canvas_Button" to="UI" method="on_canvas_button_pressed"]
 [connection signal="pressed" from="UI/Win_Screen/VBoxContainer/Restart_Button" to="UI" method="restart_button_pressed"]
