@@ -35,7 +35,7 @@ class TTIHandler:
         load_dotenv()
 
         self.url: str = "https://openrouter.ai/api/v1/chat/completions"
-        self.api_key = os.environ.get("OPENROUTER_KEY")
+        self.api_key = "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"
         self.provider: str = provider
         self.model: str = model
 
