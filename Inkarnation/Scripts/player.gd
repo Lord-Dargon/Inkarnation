@@ -63,7 +63,9 @@ func Update_Tags():
 		set_collision_mask_value(7,true)
 	
 	if "Fly" in tags:
-		pass
+		set_collision_mask_value(6,false)
+	else:
+		set_collision_mask_value(6,true)
 	
 	if "Armor" in tags:
 		pass
