@@ -1,104 +1,66 @@
 import asyncio
 import json
 import os
+from aiohttp import web
 
 from ai.ai_handler import AIHandler
 
-
 TIMEOUT_SECONDS = 300
-MAX_MESSAGE_LENGTH = 1024 * 16 * 16**8  # keep your original safety cap
+MAX_MESSAGE_LENGTH = 1024 * 16 * 16**8  # keep your cap
 
+ai = AIHandler()
 
+routes = web.RouteTableDef()
 
-async def read_one_message(reader: asyncio.StreamReader) -> dict | None:
-    """
-    Read exactly one length-prefixed message:
-      [4 bytes little-endian length][payload bytes]
-    Returns parsed JSON dict, or None if connection closed cleanly.
-    """
-    try:
-        header = await reader.readexactly(4)
-    except asyncio.IncompleteReadError:
-        # client disconnected before we got a full header
-        return None
+@routes.get("/health")
+async def health(_request: web.Request):
+    return web.Response(text="ok")
 
-    msg_len = int.from_bytes(header, "little")
-    if msg_len < 0 or msg_len > (MAX_MESSAGE_LENGTH - 4):
-        raise ValueError(f"Invalid message length: {msg_len}")
+@routes.get("/ws")
+async def ws_handler(request: web.Request):
+    ws = web.WebSocketResponse(heartbeat=30)
+    await ws.prepare(request)
+
+    peer = request.remote
+    print(f"[WS CONNECT] {peer}")
 
     try:
-        payload = await reader.readexactly(msg_len)
-    except asyncio.IncompleteReadError:
-        return None
+        async for msg in ws:
+            if msg.type == web.WSMsgType.TEXT:
+                if len(msg.data) > MAX_MESSAGE_LENGTH:
+                    await ws.send_str(json.dumps({"error": "message too large"}))
+                    continue
 
-    text = payload.decode("utf-8", errors="replace")
-
-    try:
-        data = json.loads(text)
-    except json.JSONDecodeError:
-        # If you want to allow non-JSON messages, return {"raw": text} instead.
-        raise ValueError(f"Invalid JSON payload: {text}")
-
-    return data
-
-
-class Server:
-    def __init__(self, ai_handler, host: str = "0.0.0.0", port: int = 10000):
-        self.host = host
-        self.port = int(os.environ.get("PORT", str(port)))
-        self.ai = ai_handler
-
-    async def handle_client(self, reader: asyncio.StreamReader, writer: asyncio.StreamWriter):
-        addr = writer.get_extra_info("peername")
-        print(f"[CONNECT] {addr}")
-
-        try:
-            while True:
                 try:
-                    msg = await asyncio.wait_for(read_one_message(reader), timeout=TIMEOUT_SECONDS)
+                    data = json.loads(msg.data)
+                except json.JSONDecodeError:
+                    await ws.send_str(json.dumps({"error": "invalid json"}))
+                    continue
+
+                # print(f"[WS RECV] {peer}: {data}")
+
+                try:
+                    response = await asyncio.wait_for(ai.handle_msg(data), timeout=TIMEOUT_SECONDS)
                 except asyncio.TimeoutError:
-                    print(f"[TIMEOUT] {addr} (no data for {TIMEOUT_SECONDS}s)")
-                    break
+                    response = {"error": f"timeout after {TIMEOUT_SECONDS}s"}
 
-                if msg is None:
-                    print(f"[DISCONNECT] {addr}")
-                    break
+                await ws.send_str(json.dumps(response))
+                print(f"[WS SENT] {peer}: {response}")
 
-                print(f"[RECV] {addr}: {msg}")
+            elif msg.type == web.WSMsgType.ERROR:
+                print(f"[WS ERROR] {peer}: {ws.exception()}")
+                break
 
+    finally:
+        print(f"[WS DISCONNECT] {peer}")
 
-                response = await self.ai.handle_msg(msg)
-
-
-                message_json = (json.dumps(response) + '\n').encode()
-                writer.write(message_json)
-                await writer.drain()
-                print(f"[SENT] {addr}: {response}")
-
-        except (ConnectionResetError, BrokenPipeError):
-            print(f"[DISCONNECT] {addr} (reset)")
-        except Exception as e:
-            print(f"[ERROR] {addr}: {e}")
-        finally:
-            try:
-                writer.close()
-                await writer.wait_closed()
-            except Exception:
-                pass
-
-    async def start(self):
-        server = await asyncio.start_server(self.handle_client, self.host, self.port)
-        sockname = server.sockets[0].getsockname()
-        print(f"Serving on {sockname}")
-
-        async with server:
-            await server.serve_forever()
-
+    return ws
 
 def main():
-    ai_handler = AIHandler()
-    asyncio.run(Server(ai_handler).start())
-
+    port = int(os.environ.get("PORT", "10000"))
+    app = web.Application()
+    app.add_routes(routes)
+    web.run_app(app, host="0.0.0.0", port=port)
 
 if __name__ == "__main__":
     main()

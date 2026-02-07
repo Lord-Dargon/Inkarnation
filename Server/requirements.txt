@@ -2,4 +2,4 @@ dotenv
 numpy
 pydantic
 pillow
-aiohttp
+aiohttp>=3.9
