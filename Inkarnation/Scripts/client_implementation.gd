@@ -1,82 +1,100 @@
-# Client object that handles communication to the TCP server
-# From: https://www.bytesnsprites.com/posts/2021/creating-a-tcp-client-in-godot/
+# Client object that handles communication to the WebSocket server (/ws)
+# Compatible with the aiohttp server I provided (expects JSON text frames).
 
 class_name Client_Implementation
 extends Node
 
-# Define Signals
-signal connected      # Connected to server
-signal data           # Received data from server
-signal disconnected   # Disconnected from server
-signal error          # Error with connection to server
+signal connected
+signal data            # Emits Dictionary by default; see below.
+signal disconnected
+signal error
 
-# Setup stream connection obejct
-var _status: int = 0
-var _stream: StreamPeerTCP = StreamPeerTCP.new()
+var _ws: WebSocketPeer = WebSocketPeer.new()
+var _was_connected := false
 
-func _ready() -> void:
-	_status = _stream.get_status()
+# Optional: if you want to emit raw strings instead of parsed dicts.
+@export var emit_raw_text := false
 
+func connect_to_host(host: String, port: int, use_tls: bool = true, path: String = "/ws") -> void:
+	# Render: use_tls = true, host = "<service>.onrender.com", port = 443 (or pass 0)
+	# Local:  use_tls = false, host = "127.0.0.1", port = 10000
+	var scheme := "ws" if (host == "127.0.0.1" or host == "localhost") else "wss"
 
-# Connect to the server
-func connect_to_host(host: String, port: int) -> void:
-	print("ClientHandler Connecting to %s:%d" % [host, port])
-	# Reset status so we can tell if it changes to error again.
-	_status = _stream.STATUS_NONE
-	var res = _stream.connect_to_host(host, port)
-	print("Connect attempt:", res)
-	if res != OK:
-		print("Error connecting to host.")
+	#var url := "%s://%s:%d%s" % [scheme, host, port, path]
+	var url := "%s://%s%s" % [scheme, host, path]
+	
+
+	# Some servers don't like :443 explicitly; if you want, you can omit port when 443/80.
+	# For simplicity we keep it.
+	print("WS Connecting to ", url)
+
+	var err := _ws.connect_to_url(url)
+	if err != OK:
+		print("WebSocket connect_to_url failed: ", err)
 		emit_signal("error")
 
+func disconnect_from_host(code: int = 1000, reason: String = "") -> void:
+	if _ws.get_ready_state() == WebSocketPeer.STATE_OPEN:
+		_ws.close(code, reason)
 
-# Sends a command to the server
 func send(message: Dictionary) -> bool:
-	
-	# Add newline
-	var data = JSON.stringify(message).replace('\n','')
-	data += '\n'
-	
-	# Send message
-	#print("Sending ", data)
-	if _status != _stream.STATUS_CONNECTED:
-		print("Error: Stream is not currently connected.", data)
-		var i = 0
-		var repeat_interval = 0.01
-		while _status != _stream.STATUS_CONNECTED and i < 30/repeat_interval:
-			await get_tree().create_timer(repeat_interval).timeout
-			i += 1
-	_stream.put_string(data)
+	var text := JSON.stringify(message)
+	if _ws.get_ready_state() != WebSocketPeer.STATE_OPEN:
+		print("Error: WebSocket is not open. Can't send: ", text)
+		emit_signal("error")
+		return false
+
+	# aiohttp server expects text frames containing JSON
+	var err := _ws.send_text(text)
+	if err != OK:
+		print("Error sending WS text: ", err)
+		emit_signal("error")
+		return false
+
 	return true
-	
 
-# Function that listens for messages from the server
-func _process(delta: float) -> void:
-	_stream.poll()
-	var new_status: int = _stream.get_status()
-	if new_status != _status:
-		_status = new_status
-		match _status:
-			_stream.STATUS_NONE:
-				#print("Disconnected from host.")
-				emit_signal("disconnected")
-			_stream.STATUS_CONNECTING:
-				#print("Connecting to host.")
-				pass
-			_stream.STATUS_CONNECTED:
-				print("Connected to host.")
-				emit_signal("connected")
-			_stream.STATUS_ERROR:
-				print("Error with socket stream.")
-				emit_signal("error")
+func _process(_delta: float) -> void:
+	_ws.poll()
 
-	if _status == _stream.STATUS_CONNECTED:
-		var available_bytes: int = _stream.get_available_bytes()
-		if available_bytes > 0:
-			var data: Array = _stream.get_partial_data(available_bytes)
-			# Check for read error.
-			if data[0] != OK:
-				print("Error getting data from stream: ", data[0])
-				emit_signal("error")
-			else:
-				emit_signal("data", data[1])
+	var state := _ws.get_ready_state()
+
+	# Fire connected/disconnected transitions once
+	if state == WebSocketPeer.STATE_OPEN and not _was_connected:
+		_was_connected = true
+		print("WS Connected")
+		emit_signal("connected")
+
+	elif (state == WebSocketPeer.STATE_CLOSED or state == WebSocketPeer.STATE_CLOSING) and _was_connected:
+		_was_connected = false
+		print("WS Disconnected")
+		emit_signal("disconnected")
+
+	elif state == WebSocketPeer.STATE_CONNECTING:
+		pass
+
+	# Drain incoming packets
+	while _ws.get_available_packet_count() > 0:
+		var pkt: PackedByteArray = _ws.get_packet()
+		if _ws.get_packet_error() != OK:
+			print("WS packet error: ", _ws.get_packet_error())
+			emit_signal("error")
+			continue
+
+		var text := pkt.get_string_from_utf8()
+
+		if emit_raw_text:
+			emit_signal("data", text)
+			continue
+		var parsed: Variant = JSON.parse_string(text)
+
+		if parsed == null:
+			print("WS received non-JSON: ", text)
+			emit_signal("error")
+			continue
+
+		# parsed is Variant (usually Dictionary/Array)
+		print("Parsed: ", parsed)
+		emit_signal("data", parsed)
+
+	# Optional: treat STATE_CLOSED with a close code reason as an error
+	# (Godot doesn't always surface close reason cleanly)

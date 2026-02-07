@@ -3,6 +3,7 @@ extends HBoxContainer
 @onready var fill: TextureRect = $Ink_Ind_1/Fill
 @onready var fill_2: TextureRect = $Ink_Ind_2/Fill2
 @onready var fill_3: TextureRect = $Ink_Ind_3/Fill3
+@onready var canvas_button = $"../Canvas_Button"
 
 
 
@@ -14,7 +15,9 @@ func _process(delta: float) -> void:
 		fill.hide()
 		fill.hide()
 		fill.hide()
+		canvas_button.disabled = true
 	if stocks > 0:
+		canvas_button.disabled = false
 		fill.show()
 		fill_2.hide()
 	if stocks > 1:

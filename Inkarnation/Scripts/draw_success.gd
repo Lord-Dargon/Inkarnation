@@ -5,12 +5,7 @@ extends Window
 
 
 func show_self():
-	
-	var img := Image.new()
-	img.load("res://Server/image/this_image.png")
-	
-	var tex := ImageTexture.create_from_image(img)
-	sprite.texture = tex
+	sprite.texture = Client.prev_tex
 	
 	label.text = "You are ... " + Client.player_object.player_name
 	
@@ -18,4 +13,7 @@ func show_self():
 	
 
 func _on_close_requested() -> void:
+	hide()
+	
+func _on_button_pressed():
 	hide()

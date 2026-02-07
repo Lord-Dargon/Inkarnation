@@ -1,7 +1,12 @@
-[gd_scene load_steps=7 format=3 uid="uid://b6mg25d1ghqnw"]
+[gd_scene load_steps=9 format=3 uid="uid://b6mg25d1ghqnw"]
 
 [ext_resource type="Script" uid="uid://dgrr2ds56ielo" path="res://Scripts/drawing_canvas.gd" id="1_2dl8l"]
 [ext_resource type="PackedScene" uid="uid://b15qowanxn68w" path="res://Prefabs/pixel.tscn" id="2_52vop"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_52vop"]
+bg_color = Color(0.263404, 0.706807, 0.287542, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_utigh"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_52vop"]
 load_path = "res://.godot/imported/big.png-7c44d043a5564bee0334e21fcf823084.ctex"
@@ -33,6 +38,7 @@ anchor_right = 1.0
 offset_bottom = 43.0
 grow_horizontal = 2
 theme_override_font_sizes/font_size = 25
+theme_override_styles/normal = SubResource("StyleBoxFlat_52vop")
 text = "Become"
 
 [node name="Clear" type="Button" parent="."]
@@ -44,6 +50,7 @@ offset_bottom = 86.0
 grow_horizontal = 2
 size_flags_horizontal = 4
 theme_override_font_sizes/font_size = 25
+theme_override_styles/normal = SubResource("StyleBoxFlat_utigh")
 text = "Clear
 "
 

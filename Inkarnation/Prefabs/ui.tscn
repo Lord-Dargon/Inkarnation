@@ -1,11 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://c5nu3ub1nm2t1"]
+[gd_scene load_steps=9 format=3 uid="uid://cj3w8ipfa854q"]
 
 [ext_resource type="Script" uid="uid://4ahf28hkgm27" path="res://Scripts/UI.gd" id="1_ykg4x"]
-[ext_resource type="PackedScene" uid="uid://b6mg25d1ghqnw" path="res://Prefabs/drawing_canvas.tscn" id="2_srcu5"]
+[ext_resource type="PackedScene" path="res://Prefabs/drawing_canvas.tscn" id="2_srcu5"]
 [ext_resource type="Script" uid="uid://bp5j7sjypj4qi" path="res://Scripts/ink_stock_meter.gd" id="3_oaevd"]
 [ext_resource type="Texture2D" uid="uid://b3u381cvp2utm" path="res://Assets/Art/Ink_Bottle.png" id="4_weo7u"]
 [ext_resource type="Texture2D" uid="uid://7nc267nitaii" path="res://Assets/Art/Ink_Liquid.png" id="5_ohrim"]
-[ext_resource type="PackedScene" uid="uid://cs7ghs1pvf0wa" path="res://Prefabs/draw_success.tscn" id="6_5bh6v"]
+[ext_resource type="PackedScene" uid="uid://b0g8xrvk5cys" path="res://Prefabs/draw_success.tscn" id="6_5bh6v"]
 
 [sub_resource type="Theme" id="Theme_7p6j4"]
 default_font_size = 50
@@ -17,16 +17,17 @@ font_size = 100
 script = ExtResource("1_ykg4x")
 
 [node name="Canvas_Button" type="Button" parent="."]
-offset_left = 1673.0
-offset_top = 78.0
-offset_right = 1854.0
-offset_bottom = 155.0
+offset_left = 967.0
+offset_top = -9.0
+offset_right = 1148.0
+offset_bottom = 68.0
 focus_mode = 0
 theme = SubResource("Theme_7p6j4")
 text = "Canvas"
 
 [node name="Drawing Canvas" parent="." instance=ExtResource("2_srcu5")]
 auto_translate_mode = 1
+position = Vector2i(360, 45)
 visible = false
 
 [node name="Win_Screen" type="CenterContainer" parent="."]
@@ -142,19 +143,20 @@ stretch_mode = 4
 
 [node name="DrawSuccess" parent="." instance=ExtResource("6_5bh6v")]
 auto_translate_mode = 1
-position = Vector2i(650, 230)
+position = Vector2i(350, 45)
 visible = false
 
 [node name="Restart_Button2" type="Button" parent="."]
-offset_left = 1716.0
-offset_top = 979.0
-offset_right = 1899.0
-offset_bottom = 1056.0
+offset_left = 957.0
+offset_top = 554.0
+offset_right = 1140.0
+offset_bottom = 631.0
 theme_override_font_sizes/font_size = 50
 text = "Restart
 "
 
 [connection signal="pressed" from="Canvas_Button" to="." method="on_canvas_button_pressed"]
+[connection signal="pressed" from="Win_Screen/VBoxContainer/Next_Button" to="." method="_on_next_button_pressed"]
 [connection signal="pressed" from="Win_Screen/VBoxContainer/Restart_Button" to="." method="restart_button_pressed"]
 [connection signal="pressed" from="Lose_Screen/VBoxContainer/Restart_Button" to="." method="restart_button_pressed"]
 [connection signal="pressed" from="Restart_Button2" to="." method="restart_button_pressed"]

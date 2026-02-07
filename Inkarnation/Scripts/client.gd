@@ -1,6 +1,7 @@
 extends Node
 
-const HOST: String = "127.0.0.1"
+#const HOST: String = "127.0.0.1"
+const HOST: String = "inkarnation.onrender.com"
 const PORT: int = 10000
 
 
@@ -16,6 +17,8 @@ var username = "TestUser"
 
 var player_object = null
 var canvas_object = null
+var prev_image = null
+var prev_tex = null
 
 
 # Signals (occur when received a message containing information)
@@ -26,6 +29,7 @@ signal action_received(action : String, game_object : String)
 
 
 func send_command(image):
+	prev_image = image
 	var message = {
 		"image": image
 	}
@@ -35,25 +39,14 @@ func send_command(image):
 
 
 # ------------------ Response Received! ------------------
-func _handle_client_data(data: PackedByteArray) -> void:
-	#print("hcd ", data)
-	string_buffer += data.get_string_from_utf8()
-	var messages = string_buffer.split("\n")
-	#print(messages)
-	
-	for i in range(messages.size() - 1):
-		command_queue.append(messages[i])
-	
-	# Keep the remaining partial message in the buffer
-	string_buffer = messages[messages.size() - 1]
+func _handle_client_data(data: Dictionary) -> void:
+	process_command(data)
 	
 
 
 # ------------------ Server Commands ------------------
 
-func process_command(string_data: String) -> void:
-	var dictionary = {}
-	dictionary = JSON.parse_string(string_data)
+func process_command(dictionary: Dictionary) -> void:
 	#print("Message Received:", dictionary)
 	
 	# Handle the message here
@@ -87,7 +80,7 @@ func process_command(string_data: String) -> void:
 		tags.append("Heavy")
 		
 	if player_object:
-		player_object.set_tags(tags)
+		player_object.set_tags(tags, prev_image)
 		player_object.player_name = name
 		player_object.player_speed = speed
 		

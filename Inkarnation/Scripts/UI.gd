@@ -35,3 +35,11 @@ func lose():
 
 func restart_button_pressed():
 	LevelController.restart()
+	
+	
+
+func _on_next_button_pressed():
+	print(get_tree().current_scene.name)
+	var level = int(get_tree().current_scene.name.replace("Level_",''))
+	Engine.time_scale = 1
+	LevelController.load_new_level("res://Scenes/level_" + str(level+1) + ".tscn")
