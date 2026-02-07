@@ -31,8 +31,16 @@ autowrap_mode = 2
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
-position = Vector2(256, 365)
+position = Vector2(251, 335)
 scale = Vector2(6.53125, 6.75)
 texture = ExtResource("1_fy0tm")
 
+[node name="Button" type="Button" parent="."]
+offset_left = 449.0
+offset_top = 566.0
+offset_right = 499.0
+offset_bottom = 597.0
+text = "Close"
+
 [connection signal="close_requested" from="." to="." method="_on_close_requested"]
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
