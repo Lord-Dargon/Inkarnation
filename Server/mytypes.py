@@ -17,4 +17,11 @@ class Drawing:
     strength: int
     speed: int
     weight: int
-    
+
+    living: bool
+    gives_off_illumination: bool
+    contains_water: bool
+    is_machine: bool
+    can_float: bool
+    is_scary: bool
+    is_cute: bool
