@@ -1,3 +1,8 @@
+Timer
+CollisionShape2D
+StaticBody2D
+NavigationRegion2D
+NavigationAgent2D
 Button
 Control
 Label
@@ -5,10 +10,5 @@ VBoxContainer
 GridContainer
 CenterContainer
 Node
-Timer
-CollisionShape2D
 Area2D
 RigidBody2D
-TextureRect
-HBoxContainer
-ColorRect

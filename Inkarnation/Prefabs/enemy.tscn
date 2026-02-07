@@ -1,32 +1,42 @@
-[gd_scene load_steps=5 format=3 uid="uid://cntgdy66v34vn"]
+[gd_scene load_steps=5 format=3 uid="uid://nd5gt6qipdyy"]
 
 [ext_resource type="Script" uid="uid://bixtqp55tbmb1" path="res://Prefabs/enemy.gd" id="1_leowk"]
 [ext_resource type="Texture2D" uid="uid://bdkgjisv5vie0" path="res://Assets/Art/Enemy.png" id="2_lgw76"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_vaeam"]
-size = Vector2(55, 46)
+[sub_resource type="CircleShape2D" id="CircleShape2D_lgw76"]
+radius = 30.0
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_lgw76"]
-size = Vector2(50, 40)
+[sub_resource type="CircleShape2D" id="CircleShape2D_t4g6b"]
+radius = 15.0
 
-[node name="Enemy" type="CharacterBody2D"]
+[node name="Enemy" type="CharacterBody2D" node_paths=PackedStringArray("nav_agent")]
 collision_layer = 0
 collision_mask = 0
 script = ExtResource("1_leowk")
+nav_agent = NodePath("NavigationAgent2D")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.0917969, 0.0917969)
 texture = ExtResource("2_lgw76")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="."]
 position = Vector2(-0.5, -1)
-shape = SubResource("RectangleShape2D_vaeam")
+shape = SubResource("CircleShape2D_lgw76")
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="Killbox" type="Area2D" parent="."]
 collision_layer = 0
 collision_mask = 4
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-shape = SubResource("RectangleShape2D_lgw76")
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Killbox"]
+position = Vector2(-0.5, -1)
+shape = SubResource("CircleShape2D_t4g6b")
 
-[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+
+[node name="Move_Check_Timer" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
+autostart = true
+
+[connection signal="body_entered" from="Killbox" to="." method="_on_area_2d_body_entered"]
+[connection signal="timeout" from="Move_Check_Timer" to="." method="set_movement_target"]

@@ -57,6 +57,9 @@ func _physics_process(delta: float) -> void:
 
 
 func Update_Tags():
+	
+	
+	
 	if "Swim" in tags:
 		set_collision_mask_value(7,false)
 	else:

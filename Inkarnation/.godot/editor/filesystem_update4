@@ -16,3 +16,5 @@ res://Scenes/level_6.tscn
 res://Scripts/Level_Button.gd
 res://Scenes/main_menu.tscn
 res://Scripts/title_menu.gd
+res://Scenes/level_8.tscn
+res://Prefabs/enemy.tscn
