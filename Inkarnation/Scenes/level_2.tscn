@@ -1,8 +1,4 @@
-<<<<<<< Updated upstream
 [gd_scene load_steps=24 format=4 uid="uid://b3yfescqtjro8"]
-=======
-[gd_scene load_steps=24 format=4 uid="uid://bwgbpyj5tp7go"]
->>>>>>> Stashed changes
 
 [ext_resource type="Script" uid="uid://4ahf28hkgm27" path="res://Scripts/UI.gd" id="1_vcilj"]
 [ext_resource type="PackedScene" uid="uid://b6mg25d1ghqnw" path="res://Prefabs/drawing_canvas.tscn" id="2_bl0du"]
@@ -13,11 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://duy7swxp3kwqc" path="res://Assets/Art/Water_Autotile.png" id="7_i6dbo"]
 [ext_resource type="Texture2D" uid="uid://c4wtg2lakc12h" path="res://Assets/Art/Chasm_Autotile.png" id="8_e2piv"]
 [ext_resource type="TileSet" uid="uid://dtjvn0opdqu0n" path="res://Assets/Tilesets/Wall_Tileset.tres" id="9_ijtdf"]
-<<<<<<< Updated upstream
 [ext_resource type="PackedScene" uid="uid://d1xfq3c58v3kf" path="res://Prefabs/player.tscn" id="10_ait6c"]
-=======
-[ext_resource type="PackedScene" uid="uid://q6bsgf0k72yu" path="res://Prefabs/player.tscn" id="10_ait6c"]
->>>>>>> Stashed changes
 [ext_resource type="Script" uid="uid://dq3b4q3fno65x" path="res://Scripts/tutorial.gd" id="12_4k5rq"]
 [ext_resource type="PackedScene" uid="uid://b08chgtosr0u0" path="res://Prefabs/stairs.tscn" id="13_5jii6"]
 [ext_resource type="PackedScene" uid="uid://cg0ufs7a727nh" path="res://Prefabs/boulder.tscn" id="13_vcilj"]
