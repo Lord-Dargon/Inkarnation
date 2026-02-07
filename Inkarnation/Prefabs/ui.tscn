@@ -1,0 +1,160 @@
+[gd_scene load_steps=9 format=3 uid="uid://c5nu3ub1nm2t1"]
+
+[ext_resource type="Script" uid="uid://4ahf28hkgm27" path="res://Scripts/UI.gd" id="1_ykg4x"]
+[ext_resource type="PackedScene" uid="uid://b6mg25d1ghqnw" path="res://Prefabs/drawing_canvas.tscn" id="2_srcu5"]
+[ext_resource type="Script" uid="uid://bp5j7sjypj4qi" path="res://Scripts/ink_stock_meter.gd" id="3_oaevd"]
+[ext_resource type="Texture2D" uid="uid://b3u381cvp2utm" path="res://Assets/Art/Ink_Bottle.png" id="4_weo7u"]
+[ext_resource type="Texture2D" uid="uid://7nc267nitaii" path="res://Assets/Art/Ink_Liquid.png" id="5_ohrim"]
+[ext_resource type="PackedScene" uid="uid://cs7ghs1pvf0wa" path="res://Prefabs/draw_success.tscn" id="6_5bh6v"]
+
+[sub_resource type="Theme" id="Theme_7p6j4"]
+default_font_size = 50
+
+[sub_resource type="LabelSettings" id="LabelSettings_xrdnt"]
+font_size = 100
+
+[node name="UI" type="CanvasLayer"]
+script = ExtResource("1_ykg4x")
+
+[node name="Canvas_Button" type="Button" parent="."]
+offset_left = 1673.0
+offset_top = 78.0
+offset_right = 1854.0
+offset_bottom = 155.0
+focus_mode = 0
+theme = SubResource("Theme_7p6j4")
+text = "Canvas"
+
+[node name="Drawing Canvas" parent="." instance=ExtResource("2_srcu5")]
+auto_translate_mode = 1
+visible = false
+
+[node name="Win_Screen" type="CenterContainer" parent="."]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="BG" type="ColorRect" parent="Win_Screen"]
+custom_minimum_size = Vector2(2000, 2000)
+layout_mode = 2
+color = Color(0, 0, 0, 0.431373)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Win_Screen"]
+layout_mode = 2
+alignment = 1
+
+[node name="Win_Label" type="Label" parent="Win_Screen/VBoxContainer"]
+layout_mode = 2
+text = "You Won!!!"
+label_settings = SubResource("LabelSettings_xrdnt")
+
+[node name="Next_Button" type="Button" parent="Win_Screen/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+text = "Next Level"
+
+[node name="Restart_Button" type="Button" parent="Win_Screen/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+text = "Restart
+"
+
+[node name="Lose_Screen" type="CenterContainer" parent="."]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="BG" type="ColorRect" parent="Lose_Screen"]
+custom_minimum_size = Vector2(2000, 2000)
+layout_mode = 2
+color = Color(0, 0, 0, 0.431373)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Lose_Screen"]
+layout_mode = 2
+alignment = 1
+
+[node name="Win_Label" type="Label" parent="Lose_Screen/VBoxContainer"]
+layout_mode = 2
+text = "Erased"
+label_settings = SubResource("LabelSettings_xrdnt")
+
+[node name="Restart_Button" type="Button" parent="Lose_Screen/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+text = "Restart
+"
+
+[node name="Ink_Stock_Meter" type="HBoxContainer" parent="."]
+offset_right = 368.0
+offset_bottom = 120.0
+script = ExtResource("3_oaevd")
+
+[node name="Ink_Ind_1" type="TextureRect" parent="Ink_Stock_Meter"]
+layout_mode = 2
+texture = ExtResource("4_weo7u")
+expand_mode = 3
+stretch_mode = 4
+
+[node name="Fill" type="TextureRect" parent="Ink_Stock_Meter/Ink_Ind_1"]
+visible = false
+layout_mode = 2
+offset_right = 120.0
+offset_bottom = 120.0
+texture = ExtResource("5_ohrim")
+expand_mode = 3
+stretch_mode = 4
+
+[node name="Ink_Ind_2" type="TextureRect" parent="Ink_Stock_Meter"]
+layout_mode = 2
+texture = ExtResource("4_weo7u")
+expand_mode = 3
+stretch_mode = 4
+
+[node name="Fill2" type="TextureRect" parent="Ink_Stock_Meter/Ink_Ind_2"]
+visible = false
+layout_mode = 2
+offset_right = 120.0
+offset_bottom = 120.0
+texture = ExtResource("5_ohrim")
+expand_mode = 3
+stretch_mode = 4
+
+[node name="Ink_Ind_3" type="TextureRect" parent="Ink_Stock_Meter"]
+layout_mode = 2
+texture = ExtResource("4_weo7u")
+expand_mode = 3
+stretch_mode = 4
+
+[node name="Fill3" type="TextureRect" parent="Ink_Stock_Meter/Ink_Ind_3"]
+visible = false
+layout_mode = 2
+offset_right = 120.0
+offset_bottom = 120.0
+texture = ExtResource("5_ohrim")
+expand_mode = 3
+stretch_mode = 4
+
+[node name="DrawSuccess" parent="." instance=ExtResource("6_5bh6v")]
+auto_translate_mode = 1
+position = Vector2i(650, 230)
+visible = false
+
+[node name="Restart_Button2" type="Button" parent="."]
+offset_left = 1716.0
+offset_top = 979.0
+offset_right = 1899.0
+offset_bottom = 1056.0
+theme_override_font_sizes/font_size = 50
+text = "Restart
+"
+
+[connection signal="pressed" from="Canvas_Button" to="." method="on_canvas_button_pressed"]
+[connection signal="pressed" from="Win_Screen/VBoxContainer/Restart_Button" to="." method="restart_button_pressed"]
+[connection signal="pressed" from="Lose_Screen/VBoxContainer/Restart_Button" to="." method="restart_button_pressed"]
+[connection signal="pressed" from="Restart_Button2" to="." method="restart_button_pressed"]

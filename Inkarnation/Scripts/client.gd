@@ -1,7 +1,7 @@
 extends Node
 
 const HOST: String = "127.0.0.1"
-const PORT: int = 1234
+const PORT: int = 10000
 
 
 # If disconnected attempts to reconnect at this interval

@@ -27,3 +27,9 @@ func win():
 	ui.win()
 	Engine.time_scale = 0
 	pass
+	
+	
+func lose():
+	ui.lose()
+	Engine.time_scale = 0
+	pass
