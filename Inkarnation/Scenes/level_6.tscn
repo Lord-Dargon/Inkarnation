@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://docg58c6i15i8" path="res://Scripts/stairs.gd" id="1_b33os"]
 [ext_resource type="Texture2D" uid="uid://chry1xek4ocrn" path="res://Assets/Art/Stairs.png" id="2_546p8"]
-[ext_resource type="PackedScene" path="res://Prefabs/ui.tscn" id="3_vu5tt"]
+[ext_resource type="PackedScene" uid="uid://3g2qy0dk2bse" path="res://Prefabs/ui.tscn" id="3_vu5tt"]
 [ext_resource type="TileSet" uid="uid://dtjvn0opdqu0n" path="res://Assets/Tilesets/Wall_Tileset.tres" id="4_cnikc"]
 [ext_resource type="Texture2D" uid="uid://duy7swxp3kwqc" path="res://Assets/Art/Water_Autotile.png" id="5_cepf5"]
 [ext_resource type="Script" uid="uid://truuhitd0vtu" path="res://Scripts/player.gd" id="6_fdnf0"]

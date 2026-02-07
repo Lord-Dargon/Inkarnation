@@ -1,2 +1,3 @@
-res://Prefabs/ui.tscn
+res://Prefabs/drawing_canvas.tscn
+res://System_Theme.tres
 res://Assets/Tilesets/Wall_Tileset.tres
