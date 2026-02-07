@@ -1,5 +1,5 @@
 ea4bc82a6ad023ab7ee23ee620429895
-::res://::1770434524
+::res://::1770475475
 icon.svg::CompressedTexture2D/CompressedTexture2D::2518097073382339364::1770405549::1770412973::1::::<><><>0<>0<>bc3edb51fc5bcbc034b476f677c6dcf9<>res://.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.ctex::
 ::res://Assets/::1770405559
 ::res://Assets/Art/::1770425381
@@ -15,7 +15,7 @@ Stairs.png::CompressedTexture2D/CompressedTexture2D::5300762547849299543::177040
 Wall_Autotile.png::CompressedTexture2D/CompressedTexture2D::8730819089291510171::1770405549::1770412973::1::::<><><>0<>0<>83c8a73005d1d0969619456410bf3540<>res://.godot/imported/Wall_Autotile.png-53577ec5c5f1a8a9b66c471831ab7092.ctex::
 Water_Autotile.png::CompressedTexture2D/CompressedTexture2D::8614560269759772970::1770405549::1770412973::1::::<><><>0<>0<>359fb00462d9ff32ed7a72340e768dff<>res://.godot/imported/Water_Autotile.png-a5cbd579c84469c08c67ad103446475b.ctex::
 ::res://Assets/Tilesets/::1770432046
-Wall_Tileset.tres::TileSet/TileSet::8512729087554524479::1770432046::0::1::::<><><>0<>0<><>::uid://dwnjkx6muvcsh::::res://Assets/Art/Wall_Autotile.png
+Wall_Tileset.tres::TileSet::8512729087554524479::1770432046::0::1::::<><><>0<>0<><>::uid://dwnjkx6muvcsh::::res://Assets/Art/Wall_Autotile.png
 ::res://Prefabs/::1770435918
 boulder.tscn::PackedScene::5246808136788649881::1770435918::0::1::::<><><>0<>0<><>::uid://dijlbkn1gc7wc::::res://Assets/Art/boulder.png
 drawing_canvas.tscn::PackedScene/PackedScene::4587461469437403944::1770425366::0::1::::<><><>0<>0<><>::uid://dgrr2ds56ielo::::res://Scripts/drawing_canvas.gd<>uid://b15qowanxn68w::::res://Prefabs/pixel.tscn
@@ -24,11 +24,11 @@ ink.tscn::PackedScene/PackedScene::-1::1770425381::0::1::::<><><>0<>0<><>::
 pixel.tscn::PackedScene/PackedScene::4274259580038315628::1770408283::0::1::::<><><>0<>0<><>::uid://b8aokhjatrb43::::res://Scripts/pixel.gd
 player.tscn::PackedScene/PackedScene::9031986306829263425::1770431968::0::1::::<><><>0<>0<><>::uid://truuhitd0vtu::::res://Scripts/player.gd<>uid://chmpa06dvru7a::::res://Assets/Art/Player.png
 stairs.tscn::PackedScene/PackedScene::4209400520222982989::1770425999::0::1::::<><><>0<>0<><>::uid://docg58c6i15i8::::res://Scripts/stairs.gd<>uid://chry1xek4ocrn::::res://Assets/Art/Stairs.png
-::res://Scenes/::1770435918
+::res://Scenes/::1770436280
 level_1.tscn::PackedScene::4401565049057536825::1770435918::0::1::::<><><>0<>0<><>::uid://4ahf28hkgm27::::res://Scripts/UI.gd<>uid://b6mg25d1ghqnw::::res://Prefabs/drawing_canvas.tscn<>uid://bp5j7sjypj4qi::::res://Scripts/ink_stock_meter.gd<>uid://b3u381cvp2utm::::res://Assets/Art/Ink_Bottle.png<>uid://7nc267nitaii::::res://Assets/Art/Ink_Liquid.png<>uid://cs7ghs1pvf0wa::::res://Prefabs/draw_success.tscn<>uid://duy7swxp3kwqc::::res://Assets/Art/Water_Autotile.png<>uid://c4wtg2lakc12h::::res://Assets/Art/Chasm_Autotile.png<>uid://dtjvn0opdqu0n::::res://Assets/Tilesets/Wall_Tileset.tres<>uid://d1xfq3c58v3kf::::res://Prefabs/player.tscn<>uid://dq3b4q3fno65x::::res://Scripts/tutorial.gd<>uid://b08chgtosr0u0::::res://Prefabs/stairs.tscn
 level_2.tscn::PackedScene::4401565049057536825::1770435918::0::1::::<><><>0<>0<><>::uid://4ahf28hkgm27::::res://Scripts/UI.gd<>uid://b6mg25d1ghqnw::::res://Prefabs/drawing_canvas.tscn<>uid://bp5j7sjypj4qi::::res://Scripts/ink_stock_meter.gd<>uid://b3u381cvp2utm::::res://Assets/Art/Ink_Bottle.png<>uid://7nc267nitaii::::res://Assets/Art/Ink_Liquid.png<>uid://cs7ghs1pvf0wa::::res://Prefabs/draw_success.tscn<>uid://duy7swxp3kwqc::::res://Assets/Art/Water_Autotile.png<>uid://c4wtg2lakc12h::::res://Assets/Art/Chasm_Autotile.png<>uid://dtjvn0opdqu0n::::res://Assets/Tilesets/Wall_Tileset.tres<>uid://d1xfq3c58v3kf::::res://Prefabs/player.tscn<>uid://dq3b4q3fno65x::::res://Scripts/tutorial.gd<>uid://b08chgtosr0u0::::res://Prefabs/stairs.tscn<>uid://cg0ufs7a727nh::::res://Prefabs/boulder.tscn
 level_3.tscn::PackedScene::5140669005966568860::1770435918::0::1::::<><><>0<>0<><>::uid://4ahf28hkgm27::::res://Scripts/UI.gd<>uid://b6mg25d1ghqnw::::res://Prefabs/drawing_canvas.tscn<>uid://bp5j7sjypj4qi::::res://Scripts/ink_stock_meter.gd<>uid://b3u381cvp2utm::::res://Assets/Art/Ink_Bottle.png<>uid://7nc267nitaii::::res://Assets/Art/Ink_Liquid.png<>uid://cs7ghs1pvf0wa::::res://Prefabs/draw_success.tscn<>uid://duy7swxp3kwqc::::res://Assets/Art/Water_Autotile.png<>uid://c4wtg2lakc12h::::res://Assets/Art/Chasm_Autotile.png<>uid://dtjvn0opdqu0n::::res://Assets/Tilesets/Wall_Tileset.tres<>uid://d1xfq3c58v3kf::::res://Prefabs/player.tscn<>uid://b08chgtosr0u0::::res://Prefabs/stairs.tscn<>uid://cg0ufs7a727nh::::res://Prefabs/boulder.tscn<>res://Prefabs/ink.tscn
-level_4.tscn::PackedScene::6949772629558547548::1770435918::0::1::::<><><>0<>0<><>::uid://4ahf28hkgm27::::res://Scripts/UI.gd<>uid://b6mg25d1ghqnw::::res://Prefabs/drawing_canvas.tscn<>uid://bp5j7sjypj4qi::::res://Scripts/ink_stock_meter.gd<>uid://b3u381cvp2utm::::res://Assets/Art/Ink_Bottle.png<>uid://7nc267nitaii::::res://Assets/Art/Ink_Liquid.png<>uid://cs7ghs1pvf0wa::::res://Prefabs/draw_success.tscn<>uid://duy7swxp3kwqc::::res://Assets/Art/Water_Autotile.png<>uid://c4wtg2lakc12h::::res://Assets/Art/Chasm_Autotile.png<>uid://dtjvn0opdqu0n::::res://Assets/Tilesets/Wall_Tileset.tres<>uid://d1xfq3c58v3kf::::res://Prefabs/player.tscn<>uid://cg0ufs7a727nh::::res://Prefabs/boulder.tscn<>uid://b08chgtosr0u0::::res://Prefabs/stairs.tscn<>res://Prefabs/ink.tscn
+level_4.tscn::PackedScene::6949772629558547548::1770436280::0::1::::<><><>0<>0<><>::uid://4ahf28hkgm27::::res://Scripts/UI.gd<>uid://b6mg25d1ghqnw::::res://Prefabs/drawing_canvas.tscn<>uid://bp5j7sjypj4qi::::res://Scripts/ink_stock_meter.gd<>uid://b3u381cvp2utm::::res://Assets/Art/Ink_Bottle.png<>uid://7nc267nitaii::::res://Assets/Art/Ink_Liquid.png<>uid://cs7ghs1pvf0wa::::res://Prefabs/draw_success.tscn<>uid://duy7swxp3kwqc::::res://Assets/Art/Water_Autotile.png<>uid://c4wtg2lakc12h::::res://Assets/Art/Chasm_Autotile.png<>uid://dtjvn0opdqu0n::::res://Assets/Tilesets/Wall_Tileset.tres<>uid://d1xfq3c58v3kf::::res://Prefabs/player.tscn<>uid://cg0ufs7a727nh::::res://Prefabs/boulder.tscn<>uid://b08chgtosr0u0::::res://Prefabs/stairs.tscn<>res://Prefabs/ink.tscn
 ::res://Scripts/::1770432822
 client.gd::GDScript/GDScript::5981029004420279::1770425367::0::1::::<>Node<><>0<>0<><>::
 client_implementation.gd::GDScript/GDScript::2722880098317768217::1770405549::0::1::::Client_Implementation<>Node<><>0<>0<><>::
@@ -38,7 +38,7 @@ ink.gd::GDScript/GDScript::1832552499759823273::1770418379::0::1::::<>Area2D<><>
 ink_stock_meter.gd::GDScript/GDScript::3501789229659660308::1770425845::0::1::::<>HBoxContainer<><>0<>0<><>::
 level_controller.gd::GDScript/GDScript::2761128158773463208::1770418379::0::1::::<>Node<><>0<>0<><>::
 pixel.gd::GDScript/GDScript::4703520801178700658::1770425191::0::1::::<>ColorRect<><>0<>0<><>::
-player.gd::GDScript/GDScript::1369932887565234630::1770432822::0::1::::<>CharacterBody2D<><>0<>0<><>::
+player.gd::GDScript::1369932887565234630::1770432822::0::1::::<>CharacterBody2D<><>0<>0<><>::
 stairs.gd::GDScript/GDScript::8146454231074031065::1770424993::0::1::::<>Area2D<><>0<>0<><>::
 tutorial.gd::GDScript/GDScript::8340199515290766063::1770427234::0::1::::<>Label<><>0<>0<><>::
 UI.gd::GDScript/GDScript::2035911882862490454::1770418379::0::1::::<>CanvasLayer<><>0<>0<><>::
@@ -48,7 +48,7 @@ requirements.txt::TextFile/TextFile::-1::1770418974::0::1::::<><><>0<>0<><>::
 ::res://Server/__pycache__/::1770425452
 ::res://Server/ai/::1770425367
 ::res://Server/ai/__pycache__/::1770425451
-::res://Server/image/::1770435886
+::res://Server/image/::1770436233
 this_image.png::CompressedTexture2D/CompressedTexture2D::6490618584231658231::1770436085::1770436233::1::::<><><>0<>0<>95472ee25ba36aa34e8c2b5278411dde<>res://.godot/imported/this_image.png-95a9f791014684660cd95d8fecc9d86e.ctex::
 ::res://Server/images/::1770425381
 a.png::CompressedTexture2D/CompressedTexture2D::2523759768362827016::1770418974::1770419167::1::::<><><>0<>0<>57bc5a88ceeaf1778e4d915fedc4caf4<>res://.godot/imported/a.png-4f16a7d0f5bb00fae99cc0a89f0e91c3.ctex::

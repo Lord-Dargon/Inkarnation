@@ -1,7 +1,0 @@
-res://Scenes/level_1.tscn
-res://Assets/Tilesets/Wall_Tileset.tres
-res://Scenes/level_2.tscn
-res://Scripts/player.gd
-res://Scenes/level_3.tscn
-res://Prefabs/boulder.tscn
-res://Scenes/level_4.tscn
