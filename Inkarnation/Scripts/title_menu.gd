@@ -2,6 +2,8 @@ extends CenterContainer
 
 @onready var level_menu: Control = $"../Level_Menu"
 
+func _ready() -> void:
+	Engine.time_scale = 1
 
 func play_button_pressed() -> void:
 	hide()

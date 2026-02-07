@@ -1,9 +1,11 @@
 extends CharacterBody2D
 
 
-@export var movement_speed: float = 200.0
+@export var movement_speed: float = 400.0
 @export var nav_agent: NavigationAgent2D
 @onready var move_check_timer: Timer = $Move_Check_Timer
+
+var stunned = false
 
 func _ready() -> void:
 
@@ -18,9 +20,9 @@ func _ready() -> void:
 func actor_setup():
 	await get_tree().physics_frame
 
-
 func set_movement_target():
 	nav_agent.target_position = Client.player_object.global_position
+	stunned = false
 	move_check_timer.start()
 
 func _physics_process(_delta):
@@ -29,5 +31,19 @@ func _physics_process(_delta):
 	var current_agent_position: Vector2 = global_position
 	var next_path_position: Vector2 = nav_agent.get_next_path_position()
 	var new_velocity: Vector2 = current_agent_position.direction_to(next_path_position) * movement_speed
-	velocity = new_velocity
+	if stunned == false:
+		velocity = new_velocity
+	if stunned == true:
+		velocity /= 1.05
 	move_and_slide()
+
+
+func _on_killbox_entered(body: Node2D) -> void:
+	if not "Armor" in body.tags:
+		LevelController.lose()
+		
+	if "Armor" in body.tags:
+		move_check_timer.start(1)
+		stunned = true
+		velocity = -velocity
+	pass # Replace with function body.

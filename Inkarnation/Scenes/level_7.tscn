@@ -1,13 +1,13 @@
-[gd_scene load_steps=13 format=4 uid="uid://cy8adjwjlyj6o"]
+[gd_scene load_steps=13 format=4 uid="uid://6g26ukml0l0d"]
 
 [ext_resource type="Script" uid="uid://docg58c6i15i8" path="res://Scripts/stairs.gd" id="1_fxnjf"]
 [ext_resource type="Texture2D" uid="uid://chry1xek4ocrn" path="res://Assets/Art/Stairs.png" id="2_xjeco"]
-[ext_resource type="PackedScene" uid="uid://c5nu3ub1nm2t1" path="res://Prefabs/ui.tscn" id="3_02esc"]
+[ext_resource type="PackedScene" path="res://Prefabs/ui.tscn" id="3_02esc"]
 [ext_resource type="TileSet" uid="uid://dtjvn0opdqu0n" path="res://Assets/Tilesets/Wall_Tileset.tres" id="10_yykrm"]
 [ext_resource type="Texture2D" uid="uid://duy7swxp3kwqc" path="res://Assets/Art/Water_Autotile.png" id="11_2awvy"]
 [ext_resource type="Script" uid="uid://truuhitd0vtu" path="res://Scripts/player.gd" id="12_nrv0r"]
 [ext_resource type="Texture2D" uid="uid://chmpa06dvru7a" path="res://Assets/Art/Player.png" id="13_gmj2a"]
-[ext_resource type="PackedScene" uid="uid://e5wkwukig3a6" path="res://Prefabs/boulder.tscn" id="14_n8e0l"]
+[ext_resource type="PackedScene" path="res://Prefabs/boulder.tscn" id="14_n8e0l"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xrdnt"]
 size = Vector2(16, 16)

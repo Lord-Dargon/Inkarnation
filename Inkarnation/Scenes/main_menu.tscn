@@ -157,7 +157,7 @@ theme_override_font_sizes/font_size = 50
 disabled = true
 text = "1"
 script = ExtResource("1_28flt")
-level = 0
+level = 9
 
 [node name="Level_10" type="Button" parent="Level_Menu/Level_Center/VBoxContainer/Levels"]
 custom_minimum_size = Vector2(100, 100)
@@ -166,7 +166,7 @@ theme_override_font_sizes/font_size = 50
 disabled = true
 text = "1"
 script = ExtResource("1_28flt")
-level = 0
+level = 10
 
 [node name="Level_11" type="Button" parent="Level_Menu/Level_Center/VBoxContainer/Levels"]
 custom_minimum_size = Vector2(100, 100)
@@ -175,7 +175,7 @@ theme_override_font_sizes/font_size = 50
 disabled = true
 text = "1"
 script = ExtResource("1_28flt")
-level = 0
+level = 11
 
 [node name="Level_12" type="Button" parent="Level_Menu/Level_Center/VBoxContainer/Levels"]
 custom_minimum_size = Vector2(100, 100)
@@ -184,7 +184,7 @@ theme_override_font_sizes/font_size = 50
 disabled = true
 text = "1"
 script = ExtResource("1_28flt")
-level = 0
+level = 12
 
 [node name="Level_13" type="Button" parent="Level_Menu/Level_Center/VBoxContainer/Levels"]
 custom_minimum_size = Vector2(100, 100)
@@ -193,7 +193,7 @@ theme_override_font_sizes/font_size = 50
 disabled = true
 text = "1"
 script = ExtResource("1_28flt")
-level = 0
+level = 13
 
 [node name="Level_14" type="Button" parent="Level_Menu/Level_Center/VBoxContainer/Levels"]
 custom_minimum_size = Vector2(100, 100)
@@ -202,7 +202,7 @@ theme_override_font_sizes/font_size = 50
 disabled = true
 text = "4"
 script = ExtResource("1_28flt")
-level = 0
+level = 14
 
 [node name="Level_15" type="Button" parent="Level_Menu/Level_Center/VBoxContainer/Levels"]
 custom_minimum_size = Vector2(100, 100)
@@ -211,7 +211,7 @@ theme_override_font_sizes/font_size = 50
 disabled = true
 text = "15"
 script = ExtResource("1_28flt")
-level = 0
+level = 15
 
 [connection signal="pressed" from="Title_Menu/Title/PlayButton" to="Title_Menu" method="play_button_pressed"]
 [connection signal="pressed" from="Title_Menu/Title/QuitButton" to="Title_Menu" method="quit_button_pressed"]

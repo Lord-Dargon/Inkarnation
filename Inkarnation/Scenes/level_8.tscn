@@ -1,12 +1,11 @@
-[gd_scene load_steps=14 format=4 uid="uid://7a7hfxvgun22"]
+[gd_scene load_steps=12 format=4 uid="uid://7a7hfxvgun22"]
 
 [ext_resource type="Script" uid="uid://docg58c6i15i8" path="res://Scripts/stairs.gd" id="1_a0bmv"]
 [ext_resource type="Texture2D" uid="uid://chry1xek4ocrn" path="res://Assets/Art/Stairs.png" id="2_ry3a7"]
 [ext_resource type="PackedScene" path="res://Prefabs/ui.tscn" id="3_0snvp"]
 [ext_resource type="TileSet" uid="uid://dtjvn0opdqu0n" path="res://Assets/Tilesets/Wall_Tileset.tres" id="4_q1vug"]
 [ext_resource type="Texture2D" uid="uid://duy7swxp3kwqc" path="res://Assets/Art/Water_Autotile.png" id="5_2h3kh"]
-[ext_resource type="Script" uid="uid://truuhitd0vtu" path="res://Scripts/player.gd" id="6_3xlci"]
-[ext_resource type="Texture2D" uid="uid://chmpa06dvru7a" path="res://Assets/Art/Player.png" id="7_1wp5v"]
+[ext_resource type="PackedScene" path="res://Prefabs/player.tscn" id="7_vaeam"]
 [ext_resource type="PackedScene" uid="uid://nd5gt6qipdyy" path="res://Prefabs/enemy.tscn" id="8_a0bmv"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xrdnt"]
@@ -105,9 +104,6 @@ terrain_set_0/terrain_0/name = "Water"
 terrain_set_0/terrain_0/color = Color(1, 1, 1, 1)
 sources/0 = SubResource("TileSetAtlasSource_7p6j4")
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_xfk5q"]
-size = Vector2(32, 64)
-
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_a0bmv"]
 vertices = PackedVector2Array(241.422, 212.156, 242.547, 295.531, 26.4531, 292.453, 45.3984, 213.203, 29.5391, 77.2578, 63.4609, 116.891, 693.438, 82.7266, 584.594, 119.141, 687.422, 433.297, 587, 307.078, 583.578, 496.539, 953, 491.422, 847.461, 427.031, 957.977, 335.93, 860.023, 374.719, 859, 140.742, 956, 221.281, 956, 114.156, 858.289, 80.8984, 861.883, 80, 1264.24, 80.9219, 1173.89, 119.82, 1268.25, 602.758, 1175, 446.078, 1173.73, 596.438, 1595.2, 1007.03, 9.46094, 1008.96, 15.5391, 580.438, 1597.2, 689.594, 1416.86, 599.258, 1418.97, 114.469, 1438.34, 68, 1914.91, 68, 1913.09, 693.594)
 polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(3, 2, 4, 5), PackedInt32Array(5, 4, 6, 7), PackedInt32Array(7, 6, 8, 9), PackedInt32Array(10, 9, 8), PackedInt32Array(11, 10, 8, 12), PackedInt32Array(13, 11, 12, 14), PackedInt32Array(13, 14, 15, 16), PackedInt32Array(17, 16, 15, 18, 19), PackedInt32Array(17, 19, 20, 21), PackedInt32Array(21, 20, 22, 23), PackedInt32Array(24, 23, 22), PackedInt32Array(25, 26, 27, 24, 22, 28), PackedInt32Array(28, 22, 29), PackedInt32Array(30, 31, 32, 33, 28, 29)])
@@ -139,26 +135,14 @@ navigation_visibility_mode = 2
 [node name="TileMapLayer2" type="TileMapLayer" parent="."]
 tile_set = SubResource("TileSet_6444e")
 
-[node name="Player" type="CharacterBody2D" parent="."]
-position = Vector2(143, 693)
-collision_layer = 5
-collision_mask = 209
-motion_mode = 1
-script = ExtResource("6_3xlci")
-tags = Array[String](["Person"])
-
-[node name="Sprite2D" type="Sprite2D" parent="Player"]
-texture_filter = 1
-texture = ExtResource("7_1wp5v")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
-shape = SubResource("RectangleShape2D_xfk5q")
-
 [node name="Enemy" parent="." instance=ExtResource("8_a0bmv")]
 position = Vector2(186, 281)
 collision_mask = 128
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
 navigation_polygon = SubResource("NavigationPolygon_a0bmv")
+
+[node name="Player" parent="." instance=ExtResource("7_vaeam")]
+position = Vector2(45, 762)
 
 [connection signal="body_entered" from="Stairs" to="Stairs" method="body_entered"]
