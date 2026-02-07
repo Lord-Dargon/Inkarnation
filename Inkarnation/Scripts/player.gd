@@ -47,6 +47,8 @@ func _physics_process(delta: float) -> void:
 
 	move_and_slide()
 
+
+
 func Update_Tags():
 	if "Swim" in tags:
 		set_collision_mask_value(7,false)
@@ -58,3 +60,11 @@ func Update_Tags():
 	
 	if "Armor" in tags:
 		pass
+		
+	if "Strong" in tags:
+		set_collision_mask_value(5,false)
+		set_collision_layer_value(5, true)
+	else:
+		set_collision_mask_value(5,true)
+		set_collision_layer_value(5, false)
+		

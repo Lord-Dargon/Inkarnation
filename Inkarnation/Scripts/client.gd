@@ -81,7 +81,7 @@ func process_command(string_data: String) -> void:
 		tags.append("Person")
 	if is_fire_resistant:
 		tags.append("Fire Resistant")
-	if strength >= 3:
+	if strength >= 4:
 		tags.append("Strong")
 	if weight >= 3:
 		tags.append("Heavy")
@@ -94,7 +94,16 @@ func process_command(string_data: String) -> void:
 		
 	# Hide canvas
 	if canvas_object:
-		canvas_object._on_close_requested()
+		canvas_object.manual_close()
+		
+	
+	# Make boulders pushable
+	var boulders = get_tree().get_nodes_in_group("Boulders")
+	for boulder in boulders:
+		if "Strong" in tags:
+			boulder.freeze = false
+		else:
+			boulder.freeze = true
 
 
 
