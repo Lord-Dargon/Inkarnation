@@ -1,7 +1,7 @@
 [gd_scene load_steps=15 format=4 uid="uid://bq0qqo6o8wtfy"]
 
 [ext_resource type="Texture2D" uid="uid://duy7swxp3kwqc" path="res://Assets/Art/Water_Autotile.png" id="7_i6dbo"]
-[ext_resource type="PackedScene" path="res://Prefabs/ui.tscn" id="7_lsmp6"]
+[ext_resource type="PackedScene" uid="uid://cj3w8ipfa854q" path="res://Prefabs/ui.tscn" id="7_lsmp6"]
 [ext_resource type="Texture2D" uid="uid://c4wtg2lakc12h" path="res://Assets/Art/Chasm_Autotile.png" id="8_e2piv"]
 [ext_resource type="TileSet" uid="uid://dtjvn0opdqu0n" path="res://Assets/Tilesets/Wall_Tileset.tres" id="9_ijtdf"]
 [ext_resource type="PackedScene" uid="uid://ba8obanlw5sjt" path="res://Prefabs/player.tscn" id="10_ait6c"]

@@ -12,7 +12,6 @@ var player_speed = 2
 @onready var player_sprite = $Sprite2D
 
 
-
 func set_tags(tag, prev_image):
 	print("New Tag ", tag)
 	tags = tag
