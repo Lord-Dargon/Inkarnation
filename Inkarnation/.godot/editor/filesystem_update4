@@ -3,8 +3,3 @@ res://Scripts/drawing_canvas.gd
 res://Scripts/ink_stock_meter.gd
 res://Scripts/pixel.gd
 res://Scripts/player.gd
-res://Scripts/level_controller.gd
-res://Scripts/stairs.gd
-res://Scripts/UI.gd
-res://Scenes/level_1.tscn
-res://Assets/Tilesets/Wall_Tileset.tres

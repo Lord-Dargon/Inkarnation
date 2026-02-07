@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://cg0ufs7a727nh"]
+[gd_scene load_steps=4 format=3 uid="uid://e5wkwukig3a6"]
 
 [ext_resource type="Texture2D" uid="uid://dijlbkn1gc7wc" path="res://Assets/Art/boulder.png" id="1_2lldd"]
 
@@ -10,7 +10,7 @@ size = Vector2(56, 54)
 
 [node name="Boulder" type="RigidBody2D" groups=["Boulders"]]
 collision_layer = 16
-collision_mask = 176
+collision_mask = 16
 physics_material_override = SubResource("PhysicsMaterial_2lldd")
 gravity_scale = 0.0
 linear_damp = 10000.0

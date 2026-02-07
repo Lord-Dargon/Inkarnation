@@ -4,6 +4,7 @@ extends Window
 
 @onready var Canvas: GridContainer = $Canvas
 @onready var draw_success = $"../DrawSuccess"
+@onready var finish = $Finish
 
 var brush_size
 
@@ -19,9 +20,9 @@ func _ready() -> void:
 			var p = pixel_prefab.instantiate()
 			p.location = Vector2(x,y)
 			Canvas.add_child(p)
-			
+
 	set_brush_medium()
-			
+
 	pass # Replace with function body.
 	
 	
@@ -56,6 +57,11 @@ func _on_finish_pressed():
 		var image = return_current_image()
 		Client.send_command(image)
 		Client.player_object.ink_stocks -= 1
+		
+	finish.disabled = true
+	finish.text = "Loading ..."
+		
+	
 	
 	
 func set_brush_small():

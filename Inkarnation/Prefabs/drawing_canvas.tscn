@@ -33,7 +33,7 @@ anchor_right = 1.0
 offset_bottom = 43.0
 grow_horizontal = 2
 theme_override_font_sizes/font_size = 25
-text = "Finish"
+text = "Become"
 
 [node name="Clear" type="Button" parent="."]
 anchors_preset = 10
