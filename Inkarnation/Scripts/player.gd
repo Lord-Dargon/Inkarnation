@@ -44,6 +44,10 @@ func _physics_process(delta: float) -> void:
 	var direction = Vector2(Input.get_axis("Left", "Right"), Input.get_axis("Up", "Down")).normalized()
 	if direction:
 		velocity = direction * SPEED
+		if direction.x < 0:
+			player_sprite.flip_h = true
+		elif direction.x > 0:
+			player_sprite.flip_h = false
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED/5)
 		velocity.y = move_toward(velocity.y, 0, SPEED/5)
