@@ -12,7 +12,7 @@
 [ext_resource type="Script" uid="uid://docg58c6i15i8" path="res://Scripts/stairs.gd" id="7_lsmp6"]
 [ext_resource type="Script" uid="uid://bp5j7sjypj4qi" path="res://Scripts/ink_stock_meter.gd" id="8_uy8f0"]
 [ext_resource type="Texture2D" uid="uid://chry1xek4ocrn" path="res://Assets/Art/Stairs.png" id="8_xrdnt"]
-[ext_resource type="PackedScene" path="res://Prefabs/draw_success.tscn" id="9_6r07y"]
+[ext_resource type="PackedScene" uid="uid://cs7ghs1pvf0wa" path="res://Prefabs/draw_success.tscn" id="9_6r07y"]
 [ext_resource type="PackedScene" path="res://Prefabs/boulder.tscn" id="14_6ioyp"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xrdnt"]
