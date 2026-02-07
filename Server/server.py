@@ -1,5 +1,6 @@
 import asyncio
 import json
+import os
 
 from ai.ai_handler import AIHandler
 
@@ -42,9 +43,9 @@ async def read_one_message(reader: asyncio.StreamReader) -> dict | None:
 
 
 class Server:
-    def __init__(self, ai_handler, host: str = "0.0.0.0", port: int = 1234):
+    def __init__(self, ai_handler, host: str = "0.0.0.0", port: int = 10000):
         self.host = host
-        self.port = port
+        self.port = int(os.environ.get("PORT", str(port)))
         self.ai = ai_handler
 
     async def handle_client(self, reader: asyncio.StreamReader, writer: asyncio.StreamWriter):
