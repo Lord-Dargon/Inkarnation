@@ -10,10 +10,11 @@ config_version=5
 
 [application]
 
-config/name="New Game Project"
+config/name="Inkarnation"
 run/main_scene="uid://myedi2t62wb0"
 config/features=PackedStringArray("4.4", "Mobile")
-config/icon="res://icon.svg"
+config/icon="uid://dyocogwnm86av"
+config/windows_native_icon="res://Assets/Art/Icon.ico"
 
 [autoload]
 

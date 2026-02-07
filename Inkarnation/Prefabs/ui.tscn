@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://c5nu3ub1nm2t1"]
+[gd_scene load_steps=9 format=3 uid="uid://3g2qy0dk2bse"]
 
 [ext_resource type="Script" uid="uid://4ahf28hkgm27" path="res://Scripts/UI.gd" id="1_ykg4x"]
 [ext_resource type="PackedScene" uid="uid://b6mg25d1ghqnw" path="res://Prefabs/drawing_canvas.tscn" id="2_srcu5"]
