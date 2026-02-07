@@ -1,0 +1,38 @@
+[gd_scene load_steps=4 format=3 uid="uid://bptorycxynlaa"]
+
+[ext_resource type="Texture2D" uid="uid://chmpa06dvru7a" path="res://Assets/Art/Player.png" id="1_fy0tm"]
+[ext_resource type="Script" uid="uid://dy1u54big1da5" path="res://Scripts/draw_success.gd" id="1_sclaj"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_8i6og"]
+font_size = 48
+font_color = Color(0.99998, 0.833917, 0.80624, 1)
+
+[node name="DrawSuccess" type="Window"]
+position = Vector2i(300, 300)
+size = Vector2i(500, 600)
+script = ExtResource("1_sclaj")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = -3.0
+offset_top = -27.0
+offset_right = 506.0
+offset_bottom = 609.0
+color = Color(0.205117, 0.205117, 0.205117, 1)
+
+[node name="Label" type="Label" parent="."]
+offset_left = -3.0
+offset_top = 18.0
+offset_right = 505.0
+offset_bottom = 85.0
+text = "You are ... Fish"
+label_settings = SubResource("LabelSettings_8i6og")
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(256, 365)
+scale = Vector2(6.53125, 6.75)
+texture = ExtResource("1_fy0tm")
+
+[connection signal="close_requested" from="." to="." method="_on_close_requested"]

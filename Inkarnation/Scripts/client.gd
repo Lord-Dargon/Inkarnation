@@ -15,6 +15,7 @@ var game_over = false
 var username = "TestUser"
 
 var player_object = null
+var canvas_object = null
 
 
 # Signals (occur when received a message containing information)
@@ -61,6 +62,11 @@ func process_command(string_data: String) -> void:
 	var can_fly = dictionary['fly']
 	var can_swim = dictionary['swim']
 	var has_armor = dictionary['armor']
+	var is_person = dictionary['person']
+	var is_fire_resistant = dictionary['fire_resistant']
+	var strength = dictionary['strength']
+	var speed = dictionary['speed']
+	var weight = dictionary['weight']
 	
 	print(name, can_fly, can_swim, has_armor)
 	
@@ -71,9 +77,33 @@ func process_command(string_data: String) -> void:
 		tags.append("Swim")
 	if has_armor:
 		tags.append("Armor")
+	if is_person:
+		tags.append("Person")
+	if is_fire_resistant:
+		tags.append("Fire Resistant")
+	if strength >= 4:
+		tags.append("Strong")
+	if weight >= 3:
+		tags.append("Heavy")
 		
 	if player_object:
 		player_object.set_tags(tags)
+		player_object.player_name = name
+		player_object.player_speed = speed
+		
+		
+	# Hide canvas
+	if canvas_object:
+		canvas_object.manual_close()
+		
+	
+	# Make boulders pushable
+	var boulders = get_tree().get_nodes_in_group("Boulders")
+	for boulder in boulders:
+		if "Strong" in tags:
+			boulder.freeze = false
+		else:
+			boulder.freeze = true
 
 
 
