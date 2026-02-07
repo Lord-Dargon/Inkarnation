@@ -3,6 +3,8 @@ extends Window
 @export var pixel_prefab: PackedScene
 
 @onready var Canvas: GridContainer = $Canvas
+@onready var draw_success = $"../DrawSuccess"
+@onready var finish = $Finish
 
 var brush_size
 
@@ -18,9 +20,9 @@ func _ready() -> void:
 			var p = pixel_prefab.instantiate()
 			p.location = Vector2(x,y)
 			Canvas.add_child(p)
-			
+
 	set_brush_medium()
-			
+
 	pass # Replace with function body.
 	
 	
@@ -29,6 +31,12 @@ func return_current_image() -> Array[bool]:
 	for pixel in Canvas.get_children():
 		image.append(pixel.get_current_value() == 1)
 	return image
+
+
+func manual_close() -> void:
+	hide()
+	draw_success.show_self()
+	
 
 
 func _on_close_requested() -> void:
@@ -44,9 +52,17 @@ func on_clear():
 	
 
 func _on_finish_pressed():
-	var image = return_current_image()
-	Client.send_command(image)
-	Client.player_object.ink_stocks -= 1
+	
+	if Client.player_object.ink_stocks >= 1:
+		var image = return_current_image()
+		Client.send_command(image)
+		Client.player_object.ink_stocks -= 1
+		
+	finish.disabled = true
+	finish.text = "Loading ..."
+		
+	
+	
 	
 func set_brush_small():
 	brush_size = 8.0

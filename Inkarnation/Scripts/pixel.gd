@@ -11,11 +11,33 @@ var value = 0
 var location:Vector2
 
 
+var prev_mouse_pos: Vector2
+const INTERMEDIATE_POINTS := 15
+
 func _process(_delta):
 	var mouse_pos = get_global_mouse_position()
-	var dist = global_position.distance_to(mouse_pos)
 
-	active = dist <= get_parent().get_parent().brush_size
+	# First frame safety
+	if prev_mouse_pos == null:
+		prev_mouse_pos = mouse_pos
+		return
+
+	active = false
+	var brush_size = get_parent().get_parent().brush_size
+
+	# Check current position + 5 points in between
+	for i in range(INTERMEDIATE_POINTS + 1):
+		var t := float(i) / INTERMEDIATE_POINTS
+		var sample_pos := prev_mouse_pos.lerp(mouse_pos, t)
+
+		if global_position.distance_to(sample_pos) <= brush_size:
+			active = true
+			break
+
+	# Remember for next frame
+	prev_mouse_pos = mouse_pos
+
+
 
 
 
