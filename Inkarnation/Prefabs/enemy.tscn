@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://nd5gt6qipdyy"]
 
-[ext_resource type="Script" uid="uid://bixtqp55tbmb1" path="res://Prefabs/enemy.gd" id="1_leowk"]
+[ext_resource type="Script" uid="uid://bixtqp55tbmb1" path="res://Scripts/enemy.gd" id="1_leowk"]
 [ext_resource type="Texture2D" uid="uid://bdkgjisv5vie0" path="res://Assets/Art/Enemy.png" id="2_lgw76"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_lgw76"]

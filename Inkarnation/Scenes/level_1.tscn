@@ -9,7 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://duy7swxp3kwqc" path="res://Assets/Art/Water_Autotile.png" id="7_i6dbo"]
 [ext_resource type="Texture2D" uid="uid://c4wtg2lakc12h" path="res://Assets/Art/Chasm_Autotile.png" id="8_e2piv"]
 [ext_resource type="TileSet" uid="uid://dtjvn0opdqu0n" path="res://Assets/Tilesets/Wall_Tileset.tres" id="9_ijtdf"]
-[ext_resource type="PackedScene" path="res://Prefabs/player.tscn" id="10_ait6c"]
+[ext_resource type="PackedScene" uid="uid://ba8obanlw5sjt" path="res://Prefabs/player.tscn" id="10_ait6c"]
 [ext_resource type="Script" path="res://Scripts/tutorial.gd" id="12_4k5rq"]
 [ext_resource type="PackedScene" path="res://Prefabs/stairs.tscn" id="13_5jii6"]
 

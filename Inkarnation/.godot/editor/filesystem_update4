@@ -19,3 +19,5 @@ res://Scripts/title_menu.gd
 res://Scenes/level_8.tscn
 res://Prefabs/enemy.tscn
 res://Scenes/level_7.tscn
+res://Prefabs/player.tscn
+res://Scenes/level_3.tscn
