@@ -1,7 +1,8 @@
+Timer
 CollisionShape2D
+Label
 Area2D
 RigidBody2D
-Label
 TextureRect
 HBoxContainer
 Button
