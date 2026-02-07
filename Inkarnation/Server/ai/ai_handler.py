@@ -8,6 +8,11 @@ import numpy as np
 from PIL import Image
 from dataclasses import asdict
 
+import tools
+
+
+
+
 
 class AIHandler:
     """
@@ -26,7 +31,15 @@ class AIHandler:
 
         prompt = f"""
 The following is a sketch of something. Give the name of the object, a 3 sentence description of the phsyical traits the object has, and determine 
-if the object is capable of flight, swimming, or has armor.
+if the object is capable of flight, swimming, or has armor. Also determine if the object has the following additional attrbutes:
+
+Fire-Resistant
+
+Strength (value from 1-5): 1 = very weak (like a bat), 2 = weak (like a mouse), 3 = moderate (like a human), 4 = strong (like a gorilla), 5 = very strong (like an elephant)
+
+Speed (value from 1-5): 1 = very slow (like a turtle), 2 = slow (like a human), 3 = moderate (like a dog), 4 = fast (like a horse), 5 = very fast (like a cheetah)
+
+Weight (value from 1-3): 1 = light (like a cat), 2 = moderate (like a human), 3 = heavy (like an elephant)
 """
         
         class OutputStrucure(BaseModel):
@@ -45,6 +58,21 @@ if the object is capable of flight, swimming, or has armor.
             has_armor: bool = Field(
                 description="Whether the object has armor"
             )
+            is_person: bool = Field(
+                description="Whether the object is a person"
+            )
+            is_fire_resistant: bool = Field(
+                description="Whether the object is fire resistant"
+            )
+            strength: int = Field(
+                description="Strength level of the object (1=very weak, 2=weak, 3=moderate, 4=strong, 5=very strong)"
+            )
+            speed: int = Field(
+                description="Speed level of the object (1=very slow, 2=slow, 3=moderate, 4=fast, 5=very fast)"
+            )
+            weight: int = Field(
+                description="Weight level of the object (1=light, 2=moderate, 3=heavy)"
+            )
 
         response = await self.tti_handler.query(prompt=prompt, structure=OutputStrucure, image_filename=image_path)
         print("------------- Response:\n",response)
@@ -54,7 +82,12 @@ if the object is capable of flight, swimming, or has armor.
             desc=response.get("description", "ERR"),
             fly=response.get("can_fly", False),
             swim=response.get("can_swim", False),
-            armor=response.get("has_armor", False)
+            armor=response.get("has_armor", False),
+            person=response.get("is_person", False),
+            fire_resistant=response.get("is_fire_resistant", False),
+            strength=response.get("strength", 1),
+            speed=response.get("speed", 1),
+            weight=response.get("weight", 1)
         )
 
         return new_drawing
@@ -83,10 +116,10 @@ if the object is capable of flight, swimming, or has armor.
 
         os.makedirs("image", exist_ok=True)
 
-        img = Image.fromarray(img_np, mode="L")  # L = grayscale
+        img = tools.make_edge_black_transparent(img_np, black_value=0)
         img.save("image/this_image.png")
 
-        game_object = await self.get_initial_drawing_object("image/this_image.png")
+        game_object = await self.get_initial_drawing_object(os.path.join("image","this_image.png"))
         game_dict = asdict(game_object)
 
         return game_dict
@@ -99,32 +132,13 @@ if __name__ == "__main__":
     async def main():
         handler = AIHandler()
 
-        # ---------------------------
-        # TEST: 2D array image path
-        # ---------------------------
+        from pathlib import Path
+        folder = Path("images")
 
-        # Option A: float image (forces normalization branch)
-        h, w = 128, 128
-        y, x = np.mgrid[0:h, 0:w]
-        img2d_float = (np.sin(x / 10.0) + np.cos(y / 13.0))  # values roughly in [-2, 2]
-        msg = {"image": img2d_float.tolist()}  # simulate JSON payload (list of lists)
+        for png_file in folder.glob("*.png"):
+            print(png_file.name)   # filename.png
 
-        # Option B: uint8 image (skip normalization branch)
-        # img2d_u8 = (np.random.rand(h, w) * 255).astype(np.uint8)
-        # msg = {"image": img2d_u8.tolist()}
+            print(await handler.get_initial_drawing_object(str(png_file)))
 
-        result = await handler.handle_msg(msg)
-
-        # Verify the file got saved
-        saved_path = "image/this_image.png"
-        if not os.path.exists(saved_path):
-            raise RuntimeError(f"Test failed: {saved_path} was not created")
-
-        print("✅ Saved:", saved_path)
-        print("✅ Returned dict:\n", result)
-
-        # Optional: quick sanity check that it loads as an image
-        im = Image.open(saved_path)
-        print("✅ Loaded saved image mode/size:", im.mode, im.size)
 
     asyncio.run(main())

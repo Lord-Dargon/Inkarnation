@@ -1,7 +1,19 @@
-[gd_scene load_steps=3 format=3 uid="uid://b6mg25d1ghqnw"]
+[gd_scene load_steps=7 format=3 uid="uid://b6mg25d1ghqnw"]
 
 [ext_resource type="Script" uid="uid://dgrr2ds56ielo" path="res://Scripts/drawing_canvas.gd" id="1_2dl8l"]
 [ext_resource type="PackedScene" uid="uid://b15qowanxn68w" path="res://Prefabs/pixel.tscn" id="2_52vop"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_52vop"]
+load_path = "res://.godot/imported/big.png-7c44d043a5564bee0334e21fcf823084.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_utigh"]
+load_path = "res://.godot/imported/medium.png-58282c3f192e586a61ae986861f003db.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_0hmqc"]
+load_path = "res://.godot/imported/small.png-d5795bddccb86c73380c0390bc33654d.ctex"
+
+[sub_resource type="LabelSettings" id="LabelSettings_52vop"]
+font_color = Color(0.243569, 0.243569, 0.243569, 1)
 
 [node name="Drawing Canvas" type="Window"]
 title = "Canvas"
@@ -21,11 +33,12 @@ anchor_right = 1.0
 offset_bottom = 43.0
 grow_horizontal = 2
 theme_override_font_sizes/font_size = 25
-text = "Finish"
+text = "Become"
 
 [node name="Clear" type="Button" parent="."]
 anchors_preset = 10
 anchor_right = 1.0
+offset_left = 103.0
 offset_top = 43.0
 offset_bottom = 86.0
 grow_horizontal = 2
@@ -34,22 +47,78 @@ theme_override_font_sizes/font_size = 25
 text = "Clear
 "
 
-[node name="Canvas" type="GridContainer" parent="." groups=["Goal"]]
+[node name="Canvas" type="GridContainer" parent="."]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -256.0
-offset_top = -214.0
+offset_top = -208.0
 offset_right = 256.0
-offset_bottom = 298.0
+offset_bottom = 299.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/h_separation = 0
 theme_override_constants/v_separation = 0
 columns = 64
 
+[node name="BigBrush" type="Button" parent="."]
+anchors_preset = -1
+anchor_left = 0.038
+anchor_top = 0.104
+anchor_right = 0.038
+anchor_bottom = 0.104
+offset_left = -17.456
+offset_top = -19.4
+offset_right = 15.544
+offset_bottom = 20.6
+
+[node name="Sprite2D" type="Sprite2D" parent="BigBrush"]
+position = Vector2(17, 21)
+texture = SubResource("CompressedTexture2D_52vop")
+
+[node name="MediumBrush" type="Button" parent="."]
+anchors_preset = -1
+anchor_left = 0.091
+anchor_top = 0.101
+anchor_right = 0.091
+anchor_bottom = 0.101
+offset_left = -7.592
+offset_top = -17.6
+offset_right = 22.408
+offset_bottom = 23.4
+
+[node name="Sprite2D" type="Sprite2D" parent="MediumBrush"]
+position = Vector2(15, 22)
+texture = SubResource("CompressedTexture2D_utigh")
+
+[node name="SmallBrush" type="Button" parent="."]
+anchors_preset = -1
+anchor_left = 0.162
+anchor_top = 0.099
+anchor_right = 0.162
+anchor_bottom = 0.099
+offset_left = -13.944
+offset_top = -17.4
+offset_right = 21.056
+offset_bottom = 24.6
+
+[node name="Sprite2D" type="Sprite2D" parent="SmallBrush"]
+position = Vector2(16, 23)
+texture = SubResource("CompressedTexture2D_0hmqc")
+
+[node name="Label" type="Label" parent="."]
+offset_left = 6.0
+offset_top = 573.0
+offset_right = 518.0
+offset_bottom = 602.0
+text = "Left-click Draw - Right-click Erase"
+label_settings = SubResource("LabelSettings_52vop")
+
 [connection signal="close_requested" from="." to="." method="_on_close_requested"]
 [connection signal="pressed" from="Finish" to="." method="_on_finish_pressed"]
 [connection signal="pressed" from="Clear" to="." method="on_clear"]
+[connection signal="pressed" from="BigBrush" to="." method="set_brush_large"]
+[connection signal="pressed" from="MediumBrush" to="." method="set_brush_medium"]
+[connection signal="pressed" from="SmallBrush" to="." method="set_brush_small"]
