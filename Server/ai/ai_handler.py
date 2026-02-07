@@ -40,6 +40,20 @@ Strength (value from 1-5): 1 = very weak (like a bat), 2 = weak (like a mouse), 
 Speed (value from 1-5): 1 = very slow (like a turtle), 2 = slow (like a human), 3 = moderate (like a dog), 4 = fast (like a horse), 5 = very fast (like a cheetah)
 
 Weight (value from 1-3): 1 = light (like a cat), 2 = moderate (like a human), 3 = heavy (like an elephant)
+
+Living
+
+Gives off illumination
+
+Contains water
+
+Machine
+
+Can Float on Water
+
+Is Scary
+
+Is Cute
 """
         
         class OutputStrucure(BaseModel):
@@ -73,6 +87,27 @@ Weight (value from 1-3): 1 = light (like a cat), 2 = moderate (like a human), 3 
             weight: int = Field(
                 description="Weight level of the object (1=light, 2=moderate, 3=heavy)"
             )
+            is_living: bool = Field(
+                description="Whether the object is living"
+            )
+            gives_off_illumination: bool = Field(
+                description="Whether the object gives off illumination"
+            )
+            contains_water: bool = Field(
+                description="Whether the object contains water"
+            )
+            is_machine: bool = Field(
+                description="Whether the object is a machine"
+            )
+            can_float: bool = Field(
+                description="Whether the object can float on water"
+            )
+            is_scary: bool = Field(
+                description="Whether the object is scary"
+            )
+            is_cute: bool = Field(
+                description="Whether the object is cute"
+            )
 
         response = await self.tti_handler.query(prompt=prompt, structure=OutputStrucure, image_filename=image_path)
         print("------------- Response:\n",response)
@@ -87,7 +122,14 @@ Weight (value from 1-3): 1 = light (like a cat), 2 = moderate (like a human), 3 
             fire_resistant=response.get("is_fire_resistant", False),
             strength=response.get("strength", 1),
             speed=response.get("speed", 1),
-            weight=response.get("weight", 1)
+            weight=response.get("weight", 1),
+            living=response.get("is_living", False),
+            gives_off_illumination=response.get("gives_off_illumination", False),
+            contains_water=response.get("contains_water", False),
+            is_machine=response.get("is_machine", False),
+            can_float=response.get("can_float", False),
+            is_scary=response.get("is_scary", False),
+            is_cute=response.get("is_cute", False),
         )
 
         return new_drawing
