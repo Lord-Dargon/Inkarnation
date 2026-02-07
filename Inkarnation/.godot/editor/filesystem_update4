@@ -3,3 +3,16 @@ res://Scripts/drawing_canvas.gd
 res://Scripts/ink_stock_meter.gd
 res://Scripts/pixel.gd
 res://Scripts/player.gd
+res://Scripts/level_controller.gd
+res://Scripts/stairs.gd
+res://Scripts/UI.gd
+res://Scenes/level_1.tscn
+res://Assets/Tilesets/Wall_Tileset.tres
+res://Prefabs/drawing_canvas.tscn
+res://Prefabs/draw_success.tscn
+res://Prefabs/enemy.gd
+res://Scripts/key.gd
+res://Scenes/level_6.tscn
+res://Scripts/Level_Button.gd
+res://Scenes/main_menu.tscn
+res://Scripts/title_menu.gd

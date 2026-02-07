@@ -33,7 +33,7 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	
 	if Input.is_action_just_pressed("Pause"):
-		get_tree().quit()
+		LevelController.load_new_level("res://Scenes/main_menu.tscn")
 		
 	if Input.is_action_just_pressed("Restart"):
 		LevelController.restart()

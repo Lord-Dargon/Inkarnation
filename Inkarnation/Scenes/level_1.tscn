@@ -5,7 +5,7 @@
 [ext_resource type="Script" uid="uid://bp5j7sjypj4qi" path="res://Scripts/ink_stock_meter.gd" id="3_q0ycs"]
 [ext_resource type="Texture2D" uid="uid://b3u381cvp2utm" path="res://Assets/Art/Ink_Bottle.png" id="4_hj5x7"]
 [ext_resource type="Texture2D" uid="uid://7nc267nitaii" path="res://Assets/Art/Ink_Liquid.png" id="5_yvrk7"]
-[ext_resource type="PackedScene" path="res://Prefabs/draw_success.tscn" id="6_fhuy1"]
+[ext_resource type="PackedScene" uid="uid://cs7ghs1pvf0wa" path="res://Prefabs/draw_success.tscn" id="6_fhuy1"]
 [ext_resource type="Texture2D" uid="uid://duy7swxp3kwqc" path="res://Assets/Art/Water_Autotile.png" id="7_i6dbo"]
 [ext_resource type="Texture2D" uid="uid://c4wtg2lakc12h" path="res://Assets/Art/Chasm_Autotile.png" id="8_e2piv"]
 [ext_resource type="TileSet" uid="uid://dtjvn0opdqu0n" path="res://Assets/Tilesets/Wall_Tileset.tres" id="9_ijtdf"]

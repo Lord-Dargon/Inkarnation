@@ -27,9 +27,13 @@ func win():
 	ui.win()
 	Engine.time_scale = 0
 	pass
-	
-	
+
 func lose():
 	ui.lose()
+	Client.player_object.hide()
 	Engine.time_scale = 0
 	pass
+
+
+func load_new_level(levelpath:String):
+	get_tree().change_scene_to_file(levelpath)
