@@ -12,3 +12,6 @@ res://Scripts/level_controller.gd
 res://Scripts/ink.gd
 res://Scripts/ink_stock_meter.gd
 res://Scripts/draw_success.gd
+res://Prefabs/stairs.tscn
+res://Prefabs/draw_success.tscn
+res://Scripts/tutorial.gd

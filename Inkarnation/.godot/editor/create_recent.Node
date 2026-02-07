@@ -1,10 +1,11 @@
+CollisionShape2D
+Area2D
+RigidBody2D
+Label
 TextureRect
 HBoxContainer
 Button
 VBoxContainer
-Label
 CenterContainer
 ColorRect
-CollisionShape2D
-Area2D
 Sprite2D

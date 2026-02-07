@@ -7,7 +7,9 @@
 size = Vector2(16, 16)
 
 [node name="Stairs" type="Area2D" groups=["Goal"]]
+collision_layer = 0
 script = ExtResource("1_trxl0")
+active = true
 
 [node name="Stairs" type="Sprite2D" parent="."]
 texture = ExtResource("2_jkpn4")

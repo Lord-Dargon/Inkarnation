@@ -78,6 +78,7 @@ Debug={
 [layer_names]
 
 2d_physics/layer_1="Player"
+2d_physics/layer_6="Chasm"
 2d_physics/layer_7="Water"
 2d_physics/layer_8="Wall"
 
