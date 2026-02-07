@@ -1,0 +1,8 @@
+res://Scripts/client.gd
+res://Scripts/drawing_canvas.gd
+res://Scripts/level_controller.gd
+res://Scripts/player.gd
+res://Scripts/stairs.gd
+res://Scripts/UI.gd
+res://Scenes/level_1.tscn
+res://Assets/Tilesets/Wall_Tileset.tres
