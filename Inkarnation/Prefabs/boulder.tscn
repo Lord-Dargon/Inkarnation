@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://e5wkwukig3a6"]
+
+[ext_resource type="Texture2D" uid="uid://dijlbkn1gc7wc" path="res://Assets/Art/boulder.png" id="1_2lldd"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_2lldd"]
+friction = 0.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ewwf1"]
+size = Vector2(56, 54)
+
+[node name="Boulder" type="RigidBody2D" groups=["Boulders"]]
+collision_layer = 16
+collision_mask = 16
+physics_material_override = SubResource("PhysicsMaterial_2lldd")
+gravity_scale = 0.0
+linear_damp = 10000.0
+angular_damp_mode = 1
+angular_damp = 100000.0
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.0742188, 0.0722656)
+texture = ExtResource("1_2lldd")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_ewwf1")

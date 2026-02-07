@@ -1,7 +1,7 @@
 extends Node
 
 const HOST: String = "127.0.0.1"
-const PORT: int = 1234
+const PORT: int = 10000
 
 
 # If disconnected attempts to reconnect at this interval
@@ -62,6 +62,7 @@ func process_command(string_data: String) -> void:
 	var can_fly = dictionary['fly']
 	var can_swim = dictionary['swim']
 	var has_armor = dictionary['armor']
+	var is_person = dictionary['person']
 	var is_fire_resistant = dictionary['fire_resistant']
 	var strength = dictionary['strength']
 	var speed = dictionary['speed']
@@ -76,9 +77,11 @@ func process_command(string_data: String) -> void:
 		tags.append("Swim")
 	if has_armor:
 		tags.append("Armor")
+	if is_person:
+		tags.append("Person")
 	if is_fire_resistant:
 		tags.append("Fire Resistant")
-	if strength >= 3:
+	if strength >= 4:
 		tags.append("Strong")
 	if weight >= 3:
 		tags.append("Heavy")
@@ -91,7 +94,16 @@ func process_command(string_data: String) -> void:
 		
 	# Hide canvas
 	if canvas_object:
-		canvas_object._on_close_requested()
+		canvas_object.manual_close()
+		
+	
+	# Make boulders pushable
+	var boulders = get_tree().get_nodes_in_group("Boulders")
+	for boulder in boulders:
+		if "Strong" in tags:
+			boulder.freeze = false
+		else:
+			boulder.freeze = true
 
 
 

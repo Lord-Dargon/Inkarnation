@@ -1,7 +1,12 @@
-[gd_scene load_steps=6 format=3 uid="uid://b6mg25d1ghqnw"]
+[gd_scene load_steps=9 format=3 uid="uid://b6mg25d1ghqnw"]
 
 [ext_resource type="Script" uid="uid://dgrr2ds56ielo" path="res://Scripts/drawing_canvas.gd" id="1_2dl8l"]
 [ext_resource type="PackedScene" uid="uid://b15qowanxn68w" path="res://Prefabs/pixel.tscn" id="2_52vop"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_52vop"]
+bg_color = Color(0.263404, 0.706807, 0.287542, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_utigh"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_52vop"]
 load_path = "res://.godot/imported/big.png-7c44d043a5564bee0334e21fcf823084.ctex"
@@ -11,6 +16,9 @@ load_path = "res://.godot/imported/medium.png-58282c3f192e586a61ae986861f003db.c
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_0hmqc"]
 load_path = "res://.godot/imported/small.png-d5795bddccb86c73380c0390bc33654d.ctex"
+
+[sub_resource type="LabelSettings" id="LabelSettings_52vop"]
+font_color = Color(0.243569, 0.243569, 0.243569, 1)
 
 [node name="Drawing Canvas" type="Window"]
 title = "Canvas"
@@ -30,7 +38,8 @@ anchor_right = 1.0
 offset_bottom = 43.0
 grow_horizontal = 2
 theme_override_font_sizes/font_size = 25
-text = "Finish"
+theme_override_styles/normal = SubResource("StyleBoxFlat_52vop")
+text = "Become"
 
 [node name="Clear" type="Button" parent="."]
 anchors_preset = 10
@@ -41,10 +50,11 @@ offset_bottom = 86.0
 grow_horizontal = 2
 size_flags_horizontal = 4
 theme_override_font_sizes/font_size = 25
+theme_override_styles/normal = SubResource("StyleBoxFlat_utigh")
 text = "Clear
 "
 
-[node name="Canvas" type="GridContainer" parent="." groups=["Goal"]]
+[node name="Canvas" type="GridContainer" parent="."]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -104,6 +114,14 @@ offset_bottom = 24.6
 [node name="Sprite2D" type="Sprite2D" parent="SmallBrush"]
 position = Vector2(16, 23)
 texture = SubResource("CompressedTexture2D_0hmqc")
+
+[node name="Label" type="Label" parent="."]
+offset_left = 6.0
+offset_top = 573.0
+offset_right = 518.0
+offset_bottom = 602.0
+text = "Left-click Draw - Right-click Erase"
+label_settings = SubResource("LabelSettings_52vop")
 
 [connection signal="close_requested" from="." to="." method="_on_close_requested"]
 [connection signal="pressed" from="Finish" to="." method="_on_finish_pressed"]

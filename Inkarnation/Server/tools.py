@@ -63,3 +63,8 @@ def make_edge_black_transparent(
     rgba[interior_black, 0:3] = fill_gray
 
     return Image.fromarray(rgba, mode="RGBA")
+
+
+
+if __name__ == "__main__":
+    make_edge_black_transparent()

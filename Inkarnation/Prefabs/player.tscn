@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://ba8obanlw5sjt"]
+
+[ext_resource type="Script" uid="uid://truuhitd0vtu" path="res://Scripts/player.gd" id="1_5wxv7"]
+[ext_resource type="Texture2D" uid="uid://chmpa06dvru7a" path="res://Assets/Art/Player.png" id="2_y5hcb"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xfk5q"]
+size = Vector2(32, 64)
+
+[node name="Player" type="CharacterBody2D"]
+collision_mask = 209
+motion_mode = 1
+script = ExtResource("1_5wxv7")
+tags = Array[String](["Person"])
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("2_y5hcb")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_xfk5q")
