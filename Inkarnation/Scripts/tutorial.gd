@@ -7,7 +7,7 @@ func _process(delta: float) -> void:
 		visible_ratio += 0.01
 		
 		
-	if visible_ratio >= 0.75:
+	if visible_ratio >= 0.75 and timer.is_stopped():
 		timer.start()
 	
 	
