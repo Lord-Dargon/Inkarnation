@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=13 format=3 uid="uid://dq6ql5yaf4bcv"]
+[gd_resource type="Theme" load_steps=14 format=3 uid="uid://dq6ql5yaf4bcv"]
 
 [ext_resource type="FontFile" uid="uid://7dfqy2wxr8qj" path="res://Jersey10-Regular.ttf" id="1_2d3bq"]
 [ext_resource type="Texture2D" uid="uid://dai1eqv766b5c" path="res://Assets/Art/medium.png" id="2_7onj4"]
@@ -19,6 +19,9 @@ bg_color = Color(0.680916, 0.728477, 0.914773, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7onj4"]
 bg_color = Color(0.39483, 0.455642, 0.761056, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_etbdv"]
+bg_color = Color(0.531312, 0.592048, 0.856225, 1)
 
 [sub_resource type="Image" id="Image_2d3bq"]
 data = {
@@ -58,6 +61,7 @@ VBoxContainer/constants/separation = 0
 VSlider/icons/grabber = ExtResource("2_7onj4")
 VSlider/icons/grabber_highlight = ExtResource("2_7onj4")
 VSlider/styles/grabber_area = SubResource("StyleBoxFlat_7onj4")
+VSlider/styles/grabber_area_highlight = SubResource("StyleBoxFlat_etbdv")
 Window/colors/title_color = Color(0.875, 0.875, 0.875, 1)
 Window/colors/title_outline_modulate = Color(0, 0, 0, 1)
 Window/constants/close_h_offset = 18
