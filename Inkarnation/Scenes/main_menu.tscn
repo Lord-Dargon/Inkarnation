@@ -1,26 +1,10 @@
-[gd_scene load_steps=10 format=4 uid="uid://myedi2t62wb0"]
+[gd_scene load_steps=8 format=4 uid="uid://myedi2t62wb0"]
 
-[ext_resource type="Texture2D" uid="uid://bf5t4eooyby31" path="res://Assets/Art/Details_tileset.png" id="1_1ehe0"]
 [ext_resource type="Script" uid="uid://bvdmu0hslp8ur" path="res://Scripts/Level_Button.gd" id="1_28flt"]
 [ext_resource type="Script" uid="uid://cgwu88jqnsves" path="res://Scripts/title_menu.gd" id="1_48xlc"]
+[ext_resource type="PackedScene" uid="uid://d1mtns8g0b27h" path="res://Prefabs/detail_layer.tscn" id="1_n45e2"]
 [ext_resource type="AudioStream" uid="uid://csb5u2d034cwe" path="res://Assets/Sounds/Menu.wav" id="4_ce3w2"]
-[ext_resource type="Script" uid="uid://cq31ywitmqmed" path="res://Scenes/Music_Slider.gd" id="5_n45e2"]
-
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ce3w2"]
-texture = ExtResource("1_1ehe0")
-texture_region_size = Vector2i(64, 64)
-0:0/0 = 0
-1:0/0 = 0
-2:0/0 = 0
-3:0/0 = 0
-0:1/0 = 0
-1:1/0 = 0
-2:1/0 = 0
-3:1/0 = 0
-
-[sub_resource type="TileSet" id="TileSet_n45e2"]
-tile_size = Vector2i(64, 64)
-sources/0 = SubResource("TileSetAtlasSource_ce3w2")
+[ext_resource type="Script" uid="uid://cq31ywitmqmed" path="res://Scripts/Music_Slider.gd" id="5_n45e2"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_erv1k"]
 font_size = 70
@@ -36,9 +20,8 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Detail_Layer" type="TileMapLayer" parent="."]
-tile_map_data = PackedByteArray("AAAAAAEAAAAAAAAAAAABAAkAAAAAAAEAAAACAAYAAAADAAAAAAACAAkAAAADAAEAAAADAP//AAADAAEAAAADAAkAAAAAAAAAAAAHAAoAAAADAAAAAAAIAAIAAAACAAAAAAALAAIAAAAAAAEAAAANAAcAAAACAAEAAAAOAAQAAAABAAAAAAAOAAkAAAADAAEAAAAPAP//AAADAAAAAAAPAAEAAAAAAAEAAAAQAAoAAAABAAEAAAARAAAAAAABAAAAAAARAAoAAAACAAAAAAASAAQAAAACAAEAAAA=")
-tile_set = SubResource("TileSet_n45e2")
+[node name="Detail_Layer" parent="." instance=ExtResource("1_n45e2")]
+tile_map_data = PackedByteArray("AAD/////AAACAAEAAAAAAAUAAAACAAAAAAABAAgAAAADAAEAAAABAAkAAAADAAAAAAACAAcAAAABAAEAAAAEAAEAAAACAAAAAAAHAAMAAAABAAEAAAAHAAkAAAABAAAAAAAIAAQAAAADAAAAAAAIAAgAAAADAAAAAAAJAAEAAAADAAEAAAAJAAMAAAABAAEAAAALAAEAAAADAAAAAAAMAAMAAAABAAAAAAAMAAQAAAADAAAAAAAMAAcAAAACAAEAAAAMAAgAAAADAAEAAAANAAAAAAAAAAAAAAANAAoAAAADAAEAAAAOAP//AAACAAAAAAAPAAoAAAABAAAAAAARAP//AAACAAEAAAARAAAAAAACAAAAAAASAAcAAAAAAAEAAAA=")
 
 [node name="Title_Menu" type="CenterContainer" parent="."]
 layout_mode = 1
@@ -114,14 +97,12 @@ columns = 10
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
 theme_override_font_sizes/font_size = 50
-text = "1"
 script = ExtResource("1_28flt")
 
 [node name="Level_02" type="Button" parent="Level_Menu/Level_Center/VBoxContainer/Levels"]
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
 theme_override_font_sizes/font_size = 50
-text = "1"
 script = ExtResource("1_28flt")
 level = 2
 
@@ -129,7 +110,6 @@ level = 2
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
 theme_override_font_sizes/font_size = 50
-text = "1"
 script = ExtResource("1_28flt")
 level = 3
 
@@ -137,7 +117,6 @@ level = 3
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
 theme_override_font_sizes/font_size = 50
-text = "1"
 script = ExtResource("1_28flt")
 level = 4
 
@@ -145,7 +124,6 @@ level = 4
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
 theme_override_font_sizes/font_size = 50
-text = "1"
 script = ExtResource("1_28flt")
 level = 5
 
@@ -153,7 +131,6 @@ level = 5
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
 theme_override_font_sizes/font_size = 50
-text = "1"
 script = ExtResource("1_28flt")
 level = 6
 
@@ -161,7 +138,6 @@ level = 6
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
 theme_override_font_sizes/font_size = 50
-text = "1"
 script = ExtResource("1_28flt")
 level = 7
 
@@ -169,7 +145,6 @@ level = 7
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
 theme_override_font_sizes/font_size = 50
-text = "1"
 script = ExtResource("1_28flt")
 level = 8
 
@@ -177,8 +152,6 @@ level = 8
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
 theme_override_font_sizes/font_size = 50
-disabled = true
-text = "1"
 script = ExtResource("1_28flt")
 level = 9
 
@@ -187,7 +160,6 @@ custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
 theme_override_font_sizes/font_size = 50
 disabled = true
-text = "1"
 script = ExtResource("1_28flt")
 level = 10
 
@@ -196,7 +168,6 @@ custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
 theme_override_font_sizes/font_size = 50
 disabled = true
-text = "1"
 script = ExtResource("1_28flt")
 level = 11
 
@@ -205,7 +176,6 @@ custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
 theme_override_font_sizes/font_size = 50
 disabled = true
-text = "1"
 script = ExtResource("1_28flt")
 level = 12
 
@@ -214,7 +184,6 @@ custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
 theme_override_font_sizes/font_size = 50
 disabled = true
-text = "1"
 script = ExtResource("1_28flt")
 level = 13
 
@@ -223,7 +192,6 @@ custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
 theme_override_font_sizes/font_size = 50
 disabled = true
-text = "4"
 script = ExtResource("1_28flt")
 level = 14
 
@@ -232,7 +200,6 @@ custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
 theme_override_font_sizes/font_size = 50
 disabled = true
-text = "15"
 script = ExtResource("1_28flt")
 level = 15
 

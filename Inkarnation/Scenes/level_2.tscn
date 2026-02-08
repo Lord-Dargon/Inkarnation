@@ -1,10 +1,11 @@
-[gd_scene load_steps=17 format=4 uid="uid://b3yfescqtjro8"]
+[gd_scene load_steps=18 format=4 uid="uid://b3yfescqtjro8"]
 
 [ext_resource type="Texture2D" uid="uid://duy7swxp3kwqc" path="res://Assets/Art/Water_Autotile.png" id="7_i6dbo"]
-[ext_resource type="PackedScene" uid="uid://c5nu3ub1nm2t1" path="res://Prefabs/ui.tscn" id="8_2mgoq"]
+[ext_resource type="PackedScene" uid="uid://cj3w8ipfa854q" path="res://Prefabs/ui.tscn" id="8_2mgoq"]
 [ext_resource type="Texture2D" uid="uid://c4wtg2lakc12h" path="res://Assets/Art/Chasm_Autotile.png" id="8_e2piv"]
 [ext_resource type="TileSet" uid="uid://dtjvn0opdqu0n" path="res://Assets/Tilesets/Wall_Tileset.tres" id="9_ijtdf"]
-[ext_resource type="PackedScene" uid="uid://d1xfq3c58v3kf" path="res://Prefabs/player.tscn" id="10_ait6c"]
+[ext_resource type="PackedScene" uid="uid://d1mtns8g0b27h" path="res://Prefabs/detail_layer.tscn" id="9_uhnj4"]
+[ext_resource type="PackedScene" uid="uid://ba8obanlw5sjt" path="res://Prefabs/player.tscn" id="10_ait6c"]
 [ext_resource type="Script" uid="uid://dq3b4q3fno65x" path="res://Scripts/tutorial.gd" id="12_4k5rq"]
 [ext_resource type="PackedScene" uid="uid://b08chgtosr0u0" path="res://Prefabs/stairs.tscn" id="13_5jii6"]
 [ext_resource type="PackedScene" uid="uid://e5wkwukig3a6" path="res://Prefabs/boulder.tscn" id="13_vcilj"]
@@ -306,6 +307,10 @@ position = Vector2(630, 160)
 
 [node name="Boulder3" parent="." instance=ExtResource("13_vcilj")]
 position = Vector2(596, 229)
+
+[node name="Detail_Layer" parent="." instance=ExtResource("9_uhnj4")]
+position = Vector2(-91, -104)
+tile_map_data = PackedByteArray("AAAAAAsAAAAAAAAAAAABAAAAAAAAAAEAAAABAAcAAAACAAEAAAACAAYAAAACAAEAAAACAAcAAAABAAEAAAADAAMAAAABAAEAAAADAAwAAAACAAEAAAAEAAEAAAAAAAEAAAAFAAMAAAADAAEAAAAFAAoAAAABAAAAAAAHAAYAAAABAAAAAAAIAAgAAAADAAEAAAAJAAAAAAACAAEAAAAJAAgAAAADAAAAAAAJAAkAAAADAAAAAAAKAAsAAAACAAAAAAALAAAAAAACAAAAAAALAAQAAAABAAEAAAALAAoAAAABAAAAAAANAAEAAAACAAEAAAANAAQAAAACAAAAAAAQAAAAAAACAAEAAAARAAoAAAAAAAEAAAASAAoAAAADAAEAAAASAAsAAAABAAEAAAATAAoAAAAAAAEAAAAUAAMAAAAAAAEAAAA=")
 
 [connection signal="timeout" from="Player/Label_1/Timer" to="Player/Label_1" method="_on_timer_timeout"]
 [connection signal="timeout" from="Player/Label_2/Timer" to="Player/Label_2" method="_on_timer_timeout"]

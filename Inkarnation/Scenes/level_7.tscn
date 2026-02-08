@@ -1,8 +1,9 @@
-[gd_scene load_steps=13 format=4 uid="uid://cy8adjwjlyj6o"]
+[gd_scene load_steps=14 format=4 uid="uid://cy8adjwjlyj6o"]
 
 [ext_resource type="Script" uid="uid://docg58c6i15i8" path="res://Scripts/stairs.gd" id="1_fxnjf"]
 [ext_resource type="Texture2D" uid="uid://chry1xek4ocrn" path="res://Assets/Art/Stairs.png" id="2_xjeco"]
-[ext_resource type="PackedScene" uid="uid://c5nu3ub1nm2t1" path="res://Prefabs/ui.tscn" id="3_02esc"]
+[ext_resource type="PackedScene" uid="uid://cj3w8ipfa854q" path="res://Prefabs/ui.tscn" id="3_02esc"]
+[ext_resource type="PackedScene" uid="uid://d1mtns8g0b27h" path="res://Prefabs/detail_layer.tscn" id="4_38lld"]
 [ext_resource type="TileSet" uid="uid://dtjvn0opdqu0n" path="res://Assets/Tilesets/Wall_Tileset.tres" id="10_yykrm"]
 [ext_resource type="Texture2D" uid="uid://duy7swxp3kwqc" path="res://Assets/Art/Water_Autotile.png" id="11_2awvy"]
 [ext_resource type="Script" uid="uid://truuhitd0vtu" path="res://Scripts/player.gd" id="12_nrv0r"]
@@ -122,6 +123,9 @@ texture = ExtResource("2_xjeco")
 shape = SubResource("RectangleShape2D_xrdnt")
 
 [node name="UI" parent="." instance=ExtResource("3_02esc")]
+
+[node name="Detail_Layer" parent="." instance=ExtResource("4_38lld")]
+tile_map_data = PackedByteArray("AAD//wAAAAAAAAAAAAABAAMAAAABAAEAAAABAAQAAAADAAEAAAACAAIAAAADAAEAAAACAAQAAAAAAAAAAAAFAAYAAAADAAEAAAAGAAkAAAADAAEAAAAHAAcAAAABAAAAAAAJAAEAAAACAAEAAAAJAAYAAAACAAAAAAAKAP//AAAAAAEAAAAKAAEAAAACAAAAAAANAAkAAAAAAAEAAAAOAAIAAAADAAAAAAAOAAkAAAABAAEAAAAQAAAAAAADAAEAAAAQAAIAAAAAAAEAAAAQAAkAAAADAAAAAAARAAEAAAADAAEAAAARAAMAAAAAAAEAAAA=")
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
 position = Vector2(4, 10)

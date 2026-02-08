@@ -1,9 +1,10 @@
-[gd_scene load_steps=15 format=4 uid="uid://6vabmryny16h"]
+[gd_scene load_steps=16 format=4 uid="uid://6vabmryny16h"]
 
 [ext_resource type="Script" uid="uid://docg58c6i15i8" path="res://Scripts/stairs.gd" id="1_xfwg7"]
 [ext_resource type="Texture2D" uid="uid://chry1xek4ocrn" path="res://Assets/Art/Stairs.png" id="2_r8l1h"]
 [ext_resource type="PackedScene" uid="uid://cj3w8ipfa854q" path="res://Prefabs/ui.tscn" id="3_68k2k"]
 [ext_resource type="TileSet" uid="uid://dtjvn0opdqu0n" path="res://Assets/Tilesets/Wall_Tileset.tres" id="4_acvgl"]
+[ext_resource type="PackedScene" uid="uid://d1mtns8g0b27h" path="res://Prefabs/detail_layer.tscn" id="4_r8l1h"]
 [ext_resource type="Texture2D" uid="uid://duy7swxp3kwqc" path="res://Assets/Art/Water_Autotile.png" id="5_wyrn7"]
 [ext_resource type="Script" uid="uid://truuhitd0vtu" path="res://Scripts/player.gd" id="6_fckru"]
 [ext_resource type="Texture2D" uid="uid://chmpa06dvru7a" path="res://Assets/Art/Player.png" id="7_76uda"]
@@ -123,6 +124,9 @@ texture = ExtResource("2_r8l1h")
 shape = SubResource("RectangleShape2D_xrdnt")
 
 [node name="UI" parent="." instance=ExtResource("3_68k2k")]
+
+[node name="Detail_Layer" parent="." instance=ExtResource("4_r8l1h")]
+tile_map_data = PackedByteArray("AAD//wMAAAADAAAAAAD//wUAAAADAAEAAAAAAAcAAAACAAAAAAACAAgAAAACAAAAAAADAAUAAAADAAEAAAAEAAcAAAABAAAAAAAFAAgAAAABAAAAAAAGAAcAAAADAAEAAAAHAAEAAAADAAAAAAAHAAQAAAABAAAAAAAHAAkAAAAAAAAAAAAIAAIAAAACAAEAAAAJAAcAAAADAAEAAAAJAAoAAAAAAAAAAAAKAAUAAAACAAAAAAALAAIAAAAAAAAAAAALAAgAAAABAAEAAAAOAAoAAAACAAAAAAAPAAgAAAADAAAAAAAQAAIAAAACAAAAAAAQAAYAAAACAAAAAAARAAIAAAABAAAAAAARAAcAAAACAAAAAAASAAMAAAAAAAEAAAASAAYAAAACAAEAAAA=")
 
 [node name="TileMapLayer2" type="TileMapLayer" parent="."]
 tile_map_data = PackedByteArray("AAALAAgAAAACAAEAAAALAAcAAAACAAEAAAALAAYAAAACAAEAAAALAAUAAAACAAEAAAALAAQAAAACAAEAAAAKAAgAAAACAAEAAAAKAAcAAAACAAEAAAAKAAYAAAACAAEAAAAKAAUAAAACAAEAAAAJAAUAAAABAAAAAAAJAAYAAAABAAAAAAAJAAcAAAABAAAAAAAJAAgAAAABAAAAAAALAAkAAAABAAIAAAAKAAkAAAABAAIAAAAJAAkAAAAAAAIAAAAMAAQAAAADAAEAAAAMAAUAAAADAAIAAAAMAAMAAAACAAEAAAAMAAYAAAADAAIAAAAMAAcAAAADAAIAAAAMAAgAAAADAAIAAAAMAAkAAAADAAMAAAALAAMAAAACAAEAAAAKAAQAAAABAAEAAAAKAAMAAAABAAAAAAAKAAIAAAABAAMAAAALAAIAAAADAAAAAAANAAMAAAADAAIAAAANAAQAAAADAAMAAAAMAAIAAAABAAEAAAANAAIAAAADAAEAAAANAAEAAAACAAEAAAAOAAEAAAACAAEAAAAOAAIAAAABAAIAAAAMAAEAAAABAAAAAAAMAAAAAAABAAMAAAANAAAAAAADAAAAAAAOAAAAAAADAAAAAAAPAAEAAAADAAIAAAAPAAIAAAADAAMAAAAPAAAAAAAAAAAAAAA=")

@@ -1,8 +1,9 @@
-[gd_scene load_steps=14 format=4 uid="uid://7a7hfxvgun22"]
+[gd_scene load_steps=15 format=4 uid="uid://7a7hfxvgun22"]
 
 [ext_resource type="Script" uid="uid://docg58c6i15i8" path="res://Scripts/stairs.gd" id="1_a0bmv"]
 [ext_resource type="Texture2D" uid="uid://chry1xek4ocrn" path="res://Assets/Art/Stairs.png" id="2_ry3a7"]
 [ext_resource type="PackedScene" uid="uid://cj3w8ipfa854q" path="res://Prefabs/ui.tscn" id="3_0snvp"]
+[ext_resource type="PackedScene" uid="uid://d1mtns8g0b27h" path="res://Prefabs/detail_layer.tscn" id="4_a0bmv"]
 [ext_resource type="TileSet" uid="uid://dtjvn0opdqu0n" path="res://Assets/Tilesets/Wall_Tileset.tres" id="4_q1vug"]
 [ext_resource type="Texture2D" uid="uid://duy7swxp3kwqc" path="res://Assets/Art/Water_Autotile.png" id="5_2h3kh"]
 [ext_resource type="PackedScene" uid="uid://ba8obanlw5sjt" path="res://Prefabs/player.tscn" id="7_vaeam"]
@@ -140,6 +141,9 @@ texture = ExtResource("2_ry3a7")
 shape = SubResource("RectangleShape2D_xrdnt")
 
 [node name="UI" parent="." instance=ExtResource("3_0snvp")]
+
+[node name="Detail_Layer" parent="." instance=ExtResource("4_a0bmv")]
+tile_map_data = PackedByteArray("AAD//wMAAAAAAAEAAAD//wcAAAABAAAAAAD//wkAAAADAAAAAAD//wwAAAADAAEAAAABAAQAAAABAAAAAAABAAsAAAAAAAEAAAABAA4AAAABAAEAAAACAAAAAAAAAAAAAAACAAgAAAADAAAAAAACAA8AAAADAAEAAAADAAgAAAABAAEAAAADAA0AAAADAAAAAAADAA8AAAAAAAEAAAAEAAMAAAAAAAEAAAAEAAkAAAAAAAAAAAAFAAsAAAADAAAAAAAGAAwAAAACAAEAAAAHAAYAAAADAAAAAAAHAAoAAAACAAEAAAAIAAQAAAACAAEAAAAJAAQAAAADAAEAAAAKAA8AAAABAAAAAAALAAAAAAACAAAAAAALAAYAAAACAAEAAAALAAkAAAADAAEAAAALAAsAAAAAAAAAAAAMAAsAAAAAAAAAAAANAAoAAAAAAAAAAAANAA8AAAABAAEAAAAPAAMAAAADAAAAAAAPAAQAAAADAAAAAAAPAAcAAAAAAAAAAAAPAAoAAAAAAAEAAAAPAA8AAAABAAEAAAAQAAsAAAAAAAAAAAAQAAwAAAAAAAAAAAARAA0AAAACAAAAAAARAA4AAAADAAAAAAASAAkAAAABAAEAAAATAAUAAAABAAEAAAATAAcAAAACAAEAAAAUAAsAAAAAAAAAAAAUAA4AAAACAAAAAAAUAA8AAAAAAAAAAAAVAP//AAACAAEAAAAVAAAAAAADAAAAAAAVAAMAAAABAAAAAAAVAAkAAAABAAAAAAAXAAcAAAABAAAAAAAYAAcAAAAAAAAAAAAZAAIAAAADAAEAAAAZAA0AAAADAAEAAAAbAAYAAAADAAAAAAAbAAsAAAADAAEAAAAbABAAAAAAAAEAAAAdAP//AAACAAAAAAAdAAMAAAADAAAAAAAeAAcAAAACAAEAAAAeAAwAAAADAAEAAAAfAAkAAAABAAAAAAAfAA8AAAACAAEAAAA=")
 
 [node name="Wall_Layer" type="TileMapLayer" parent="."]
 position = Vector2(4, 10)

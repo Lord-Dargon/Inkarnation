@@ -1,7 +1,8 @@
-[gd_scene load_steps=13 format=4 uid="uid://dacvdx1wwqaac"]
+[gd_scene load_steps=14 format=4 uid="uid://dacvdx1wwqaac"]
 
+[ext_resource type="PackedScene" uid="uid://d1mtns8g0b27h" path="res://Prefabs/detail_layer.tscn" id="1_3ntyy"]
 [ext_resource type="Texture2D" uid="uid://duy7swxp3kwqc" path="res://Assets/Art/Water_Autotile.png" id="7_cxe20"]
-[ext_resource type="PackedScene" uid="uid://c5nu3ub1nm2t1" path="res://Prefabs/ui.tscn" id="8_5a8oa"]
+[ext_resource type="PackedScene" uid="uid://cj3w8ipfa854q" path="res://Prefabs/ui.tscn" id="8_5a8oa"]
 [ext_resource type="Texture2D" uid="uid://c4wtg2lakc12h" path="res://Assets/Art/Chasm_Autotile.png" id="8_fmsuk"]
 [ext_resource type="TileSet" uid="uid://dtjvn0opdqu0n" path="res://Assets/Tilesets/Wall_Tileset.tres" id="9_3oae0"]
 [ext_resource type="PackedScene" uid="uid://ba8obanlw5sjt" path="res://Prefabs/player.tscn" id="10_a51ki"]
@@ -180,6 +181,9 @@ terrain_set_0/terrain_0/color = Color(0, 0, 0, 1)
 sources/1 = SubResource("TileSetAtlasSource_6r07y")
 
 [node name="Level_4" type="Node2D"]
+
+[node name="Detail_Layer" parent="." instance=ExtResource("1_3ntyy")]
+tile_map_data = PackedByteArray("AAAAAAAAAAABAAAAAAAAAAYAAAABAAAAAAABAAIAAAACAAEAAAABAAcAAAAAAAAAAAADAP//AAAAAAEAAAADAAAAAAADAAAAAAADAAUAAAACAAEAAAAEAAoAAAAAAAAAAAAFAAAAAAACAAAAAAAHAAQAAAADAAAAAAAIAAoAAAABAAEAAAAJAAAAAAABAAEAAAAJAAkAAAAAAAAAAAAKAAcAAAADAAAAAAAMAAIAAAAAAAEAAAAMAAcAAAAAAAEAAAAPAAoAAAACAAEAAAARAAYAAAADAAAAAAARAAgAAAACAAAAAAASAAUAAAADAAAAAAASAAgAAAABAAAAAAA=")
 
 [node name="Water_Layer" type="TileMapLayer" parent="."]
 tile_map_data = PackedByteArray("AAAMAAQAAAACAAEAAAANAAQAAAACAAEAAAANAAUAAAACAAEAAAAMAAUAAAACAAIAAAALAAUAAAAAAAIAAAALAAQAAAABAAAAAAALAAMAAAABAAMAAAAMAAMAAAADAAAAAAANAAMAAAADAAAAAAAOAAQAAAACAAAAAAAOAAUAAAACAAEAAAAOAAMAAAAAAAAAAAAOAAYAAAACAAEAAAANAAYAAAACAAIAAAAMAAYAAAAAAAIAAAAPAAUAAAACAAAAAAAPAAYAAAACAAEAAAAPAAQAAAAAAAAAAAAPAAcAAAACAAIAAAAOAAcAAAABAAIAAAANAAcAAAAAAAIAAAAQAAYAAAACAAEAAAAQAAcAAAACAAEAAAAQAAUAAAADAAAAAAARAAYAAAADAAIAAAARAAcAAAACAAEAAAARAAUAAAAAAAAAAAARAAgAAAADAAMAAAAQAAgAAAABAAIAAAAPAAgAAAAAAAIAAAA=")

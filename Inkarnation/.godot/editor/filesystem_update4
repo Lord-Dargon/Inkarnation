@@ -19,3 +19,9 @@ res://Scripts/enemy.gd
 res://Scripts/pixel.gd
 res://default_bus_layout.tres
 res://Scenes/Music_Slider.gd
+res://Prefabs/detail_layer.tscn
+res://Scenes/level_2.tscn
+res://Scenes/level_7.tscn
+res://Scenes/level_6.tscn
+res://Scenes/level_4.tscn
+res://Scenes/level_3.tscn

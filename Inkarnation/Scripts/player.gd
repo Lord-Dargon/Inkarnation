@@ -2,10 +2,10 @@ extends CharacterBody2D
 
 var ink_stocks:int = 1
 
-@export var speed_scale = 150.0
+var speed_scale = 150.0
 var player_name = "Player"
 var player_speed = 2
-@onready var move_speed = player_speed * speed_scale
+var move_speed = player_speed * speed_scale
 
 @export var tags:Array[String]
 
@@ -108,6 +108,7 @@ func _ready() -> void:
 	Update_Tags()
 
 func _physics_process(delta: float) -> void:
+	move_speed = player_speed * speed_scale
 	
 	if Input.is_action_just_pressed("Pause"):
 		LevelController.load_new_level("res://Scenes/main_menu.tscn")
