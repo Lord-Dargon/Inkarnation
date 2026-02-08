@@ -17,3 +17,5 @@ res://Scripts/drawing_canvas.gd
 res://Scenes/level_9.tscn
 res://Scripts/enemy.gd
 res://Scripts/pixel.gd
+res://default_bus_layout.tres
+res://Scenes/Music_Slider.gd
