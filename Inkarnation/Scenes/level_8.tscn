@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=4 uid="uid://7a7hfxvgun22"]
+[gd_scene load_steps=18 format=4 uid="uid://7a7hfxvgun22"]
 
 [ext_resource type="Script" uid="uid://docg58c6i15i8" path="res://Scripts/stairs.gd" id="1_a0bmv"]
 [ext_resource type="Texture2D" uid="uid://chry1xek4ocrn" path="res://Assets/Art/Stairs.png" id="2_ry3a7"]
@@ -128,6 +128,24 @@ func body_entered(body: Node2D) -> void:
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vaeam"]
 size = Vector2(251, 710)
 
+[sub_resource type="GDScript" id="GDScript_ry3a7"]
+resource_name = "Tutorial"
+script/source = "extends Area2D
+
+
+@export var label:Label
+
+
+
+func _on_body_entered(body: Node2D) -> void:
+	if label and not \"Swim\" in body.tags:
+		label.show()
+	pass # Replace with function body.
+"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0snvp"]
+size = Vector2(169, 480.928)
+
 [node name="Level_8" type="Node2D"]
 
 [node name="Stairs" type="Area2D" parent="." groups=["Goal"]]
@@ -216,6 +234,17 @@ enemy = NodePath("../Enemy3")
 position = Vector2(9.5, 103)
 shape = SubResource("RectangleShape2D_vaeam")
 
+[node name="Tutorial_Area" type="Area2D" parent="." node_paths=PackedStringArray("label")]
+position = Vector2(555, 658)
+collision_layer = 64
+script = SubResource("GDScript_ry3a7")
+label = NodePath("../Player/Label")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Tutorial_Area"]
+position = Vector2(13.5, -60.7436)
+shape = SubResource("RectangleShape2D_0snvp")
+
 [connection signal="body_entered" from="Stairs" to="Stairs" method="body_entered"]
 [connection signal="timeout" from="Player/Label/Timer" to="Player/Label" method="_on_timer_timeout"]
 [connection signal="body_entered" from="Area2D" to="Area2D" method="body_entered"]
+[connection signal="body_entered" from="Tutorial_Area" to="Tutorial_Area" method="_on_body_entered"]

@@ -111,7 +111,7 @@ polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Arr
 outlines = Array[PackedVector2Array]([PackedVector2Array(275, 328, -6, 324, -2, 45, 726, 51, 720, 400, 822, 396, 828, 371, 827, 141, 826, 56, 858, 48, 1296, 49, 1300, 570, 1385, 568, 1387, 108, 1417, 36, 1947, 36, 1945, 726, 1629, 722, 1627, 1039, -23, 1041, -16, 548, 1142, 564, 1143, 446, 1142, 151, 988, 147, 988, 221, 990, 336, 984, 523, 551, 529, 555, 307, 553, 151, 90, 149, 84, 181, 273, 180)])
 agent_radius = 32.0
 
-[node name="Level_8" type="Node2D"]
+[node name="Level_9" type="Node2D"]
 
 [node name="Stairs" type="Area2D" parent="." groups=["Goal"]]
 position = Vector2(1876, 498)
@@ -142,6 +142,7 @@ tile_set = SubResource("TileSet_6444e")
 [node name="Enemy" parent="." instance=ExtResource("6_f7d2o")]
 position = Vector2(186, 281)
 collision_mask = 128
+speed_value = 2
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
 navigation_polygon = SubResource("NavigationPolygon_a0bmv")
