@@ -9,7 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://e5wkwukig3a6" path="res://Prefabs/boulder.tscn" id="7_etsvn"]
 [ext_resource type="PackedScene" uid="uid://cpg87a0njuouj" path="res://Prefabs/key.tscn" id="8_r7uni"]
 [ext_resource type="PackedScene" uid="uid://mr8m8w2lc1wl" path="res://Prefabs/ink.tscn" id="9_0saev"]
-[ext_resource type="PackedScene" uid="uid://bqsg31wal0hbm" path="res://Prefabs/portal.tscn" id="10_7q7hj"]
+[ext_resource type="PackedScene" uid="uid://xwirasswndu4" path="res://Prefabs/portal.tscn" id="10_7q7hj"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7p6j4"]
 texture = ExtResource("5_oxods")
