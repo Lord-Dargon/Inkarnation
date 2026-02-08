@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=4 uid="uid://c0xjhnjvkrkgf"]
+[gd_scene load_steps=15 format=4 uid="uid://i77n05esuhnd"]
 
 [ext_resource type="Texture2D" uid="uid://c4wtg2lakc12h" path="res://Assets/Art/Chasm_Autotile.png" id="2_pqfbu"]
 [ext_resource type="PackedScene" uid="uid://cj3w8ipfa854q" path="res://Prefabs/ui.tscn" id="3_r7uni"]
@@ -9,7 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://e5wkwukig3a6" path="res://Prefabs/boulder.tscn" id="7_etsvn"]
 [ext_resource type="PackedScene" uid="uid://cpg87a0njuouj" path="res://Prefabs/key.tscn" id="8_r7uni"]
 [ext_resource type="PackedScene" uid="uid://mr8m8w2lc1wl" path="res://Prefabs/ink.tscn" id="9_0saev"]
-[ext_resource type="PackedScene" uid="uid://xwirasswndu4" path="res://Prefabs/portal.tscn" id="10_7q7hj"]
+[ext_resource type="PackedScene" uid="uid://bqsg31wal0hbm" path="res://Prefabs/portal.tscn" id="10_7q7hj"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7p6j4"]
 texture = ExtResource("5_oxods")
@@ -205,23 +205,11 @@ active = false
 
 [node name="UI" parent="." instance=ExtResource("3_r7uni")]
 
-[node name="Boulder" parent="." instance=ExtResource("7_etsvn")]
-position = Vector2(290, 220.886)
-
-[node name="Boulder2" parent="." instance=ExtResource("7_etsvn")]
-position = Vector2(291, 155.624)
-
-[node name="Boulder3" parent="." instance=ExtResource("7_etsvn")]
-position = Vector2(290, 88.3543)
-
 [node name="Key" parent="." instance=ExtResource("8_r7uni")]
-position = Vector2(153, 443.78)
-
-[node name="Ink" parent="." instance=ExtResource("9_0saev")]
-position = Vector2(491, 131.527)
+position = Vector2(81, 464.864)
 
 [node name="Portal" parent="." instance=ExtResource("10_7q7hj")]
-position = Vector2(355, 139.56)
+position = Vector2(371, 159.64)
 destination_x = 730
 destination_y = 180
 criteria = "Cute"
@@ -230,17 +218,29 @@ backup_y = 450
 portal_name = "Is Cute"
 
 [node name="Portal2" parent="." instance=ExtResource("10_7q7hj")]
-position = Vector2(668, 141.568)
+position = Vector2(359, 460.848)
+destination_x = 430
+destination_y = 180
+backup_x = 430
+backup_y = 180
+portal_name = "No"
+
+[node name="Portal3" parent="." instance=ExtResource("10_7q7hj")]
+position = Vector2(662, 155.624)
 destination_x = 430
 destination_y = 180
 backup_x = 430
 backup_y = 180
 portal_name = "Yes"
 
-[node name="Portal3" parent="." instance=ExtResource("10_7q7hj")]
-position = Vector2(369, 484.945)
-destination_x = 430
-destination_y = 180
-backup_x = 430
-backup_y = 180
-portal_name = "No"
+[node name="Boulder" parent="." instance=ExtResource("7_etsvn")]
+position = Vector2(286, 493.981)
+
+[node name="Boulder2" parent="." instance=ExtResource("7_etsvn")]
+position = Vector2(286, 436.751)
+
+[node name="Boulder3" parent="." instance=ExtResource("7_etsvn")]
+position = Vector2(286, 380.526)
+
+[node name="Ink" parent="." instance=ExtResource("9_0saev")]
+position = Vector2(454, 450.808)
