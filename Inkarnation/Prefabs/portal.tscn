@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3 uid="uid://xwirasswndu4"]
+
+[ext_resource type="Texture2D" uid="uid://we0mkuauc5tc" path="res://Assets/Art/Portal.png" id="1_166xh"]
+[ext_resource type="Script" uid="uid://mgsqw7p71105" path="res://Scripts/portal.gd" id="1_umd7t"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_umd7t"]
+size = Vector2(26, 46)
+
+[sub_resource type="LabelSettings" id="LabelSettings_umd7t"]
+
+[node name="Portal" type="Area2D"]
+collision_layer = 0
+collision_mask = 8
+script = ExtResource("1_umd7t")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_166xh")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_umd7t")
+
+[node name="Title" type="Label" parent="."]
+offset_left = -54.0
+offset_top = -53.0
+offset_right = 56.0
+offset_bottom = -34.0
+text = "yee"
+label_settings = SubResource("LabelSettings_umd7t")
+horizontal_alignment = 1
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

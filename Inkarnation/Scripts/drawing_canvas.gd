@@ -17,16 +17,13 @@ func _ready() -> void:
 	set_brush_medium()
 	
 	var img = null
-	if get_tree().current_scene.name == "Level_5":
-		img = Image.new()
-		img.load("res://Assets/PreDrawings/circle.png")
-	if get_tree().current_scene.name == "Level_11":
-		img = Image.new()
-		img.load("res://Assets/PreDrawings/circle.png")
 	if get_tree().current_scene.name == "Level_12":
 		img = Image.new()
-		img.load("res://Assets/PreDrawings/person.png")
+		img.load("res://Assets/PreDrawings/circle.png")
 	if get_tree().current_scene.name == "Level_13":
+		img = Image.new()
+		img.load("res://Assets/PreDrawings/person.png")
+	if get_tree().current_scene.name == "Level_14":
 		img = Image.new()
 		img.load("res://Assets/PreDrawings/triangle.png")
 
@@ -68,8 +65,9 @@ func _on_close_requested() -> void:
 
 func on_clear():
 	for child in Canvas.get_children():
-		child.color = child.Background_Color
-		child.value = 0
+		if not child.stuck:
+			child.color = child.Background_Color
+			child.value = 0
 	array.clear()
 	
 

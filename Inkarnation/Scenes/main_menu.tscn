@@ -159,7 +159,6 @@ level = 9
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
 theme_override_font_sizes/font_size = 50
-disabled = true
 script = ExtResource("1_28flt")
 level = 10
 
@@ -167,7 +166,6 @@ level = 10
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
 theme_override_font_sizes/font_size = 50
-disabled = true
 script = ExtResource("1_28flt")
 level = 11
 
@@ -175,7 +173,6 @@ level = 11
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
 theme_override_font_sizes/font_size = 50
-disabled = true
 script = ExtResource("1_28flt")
 level = 12
 
@@ -183,7 +180,6 @@ level = 12
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
 theme_override_font_sizes/font_size = 50
-disabled = true
 script = ExtResource("1_28flt")
 level = 13
 

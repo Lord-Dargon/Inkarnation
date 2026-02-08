@@ -25,3 +25,10 @@ res://Scenes/level_7.tscn
 res://Scenes/level_6.tscn
 res://Scenes/level_4.tscn
 res://Scenes/level_3.tscn
+res://Scripts/stairs.gd
+res://Scripts/client.gd
+res://Scripts/portal.gd
+res://Prefabs/pixel.tscn
+res://Prefabs/player.tscn
+res://Scenes/level_13.tscn
+res://Scenes/level_12.tscn

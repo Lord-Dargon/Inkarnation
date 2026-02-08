@@ -60,6 +60,8 @@ func process_command(dictionary: Dictionary) -> void:
 	var strength = dictionary['strength']
 	var speed = dictionary['speed']
 	var weight = dictionary['weight']
+	var cute = dictionary['is_cute']
+	var scary = dictionary['is_scary']
 	
 	print(name, can_fly, can_swim, has_armor)
 	
@@ -78,6 +80,10 @@ func process_command(dictionary: Dictionary) -> void:
 		tags.append("Strong")
 	if weight >= 3:
 		tags.append("Heavy")
+	if cute:
+		tags.append("Cute")
+	if scary:
+		tags.append("Scary")
 		
 	if player_object:
 		player_object.set_tags(tags, prev_image)
