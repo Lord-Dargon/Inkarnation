@@ -24,7 +24,7 @@ focus_mode = 0
 theme = SubResource("Theme_7p6j4")
 text = "Canvas"
 
-[node name="Restart_Button2" type="Button" parent="."]
+[node name="Restart_Button" type="Button" parent="."]
 offset_left = 992.0
 offset_top = 591.0
 offset_right = 1152.0
@@ -163,7 +163,7 @@ position = Vector2i(350, 45)
 visible = false
 
 [connection signal="pressed" from="Canvas_Button" to="." method="on_canvas_button_pressed"]
-[connection signal="pressed" from="Restart_Button2" to="." method="restart_button_pressed"]
+[connection signal="pressed" from="Restart_Button" to="." method="restart_button_pressed"]
 [connection signal="pressed" from="Win_Screen/VBoxContainer/Next_Button" to="." method="_on_next_button_pressed"]
 [connection signal="pressed" from="Win_Screen/VBoxContainer/Restart_Button" to="." method="restart_button_pressed"]
 [connection signal="pressed" from="Lose_Screen/VBoxContainer/Restart_Button" to="." method="restart_button_pressed"]
