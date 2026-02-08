@@ -36,6 +36,7 @@ text = "Restart
 [node name="Drawing Canvas" parent="." instance=ExtResource("2_srcu5")]
 auto_translate_mode = 1
 position = Vector2i(360, 45)
+visible = false
 
 [node name="Win_Screen" type="CenterContainer" parent="."]
 visible = false

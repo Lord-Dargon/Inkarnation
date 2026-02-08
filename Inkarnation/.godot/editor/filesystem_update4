@@ -13,3 +13,4 @@ res://Scripts/ink_stock_meter.gd
 res://Prefabs/ink.tscn
 res://Scripts/player.gd
 res://Prefabs/drawing_canvas.tscn
+res://Scripts/drawing_canvas.gd

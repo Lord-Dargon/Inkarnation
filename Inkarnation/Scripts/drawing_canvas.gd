@@ -4,7 +4,7 @@ extends Window
 
 @onready var Canvas: GridContainer = $Canvas
 @onready var draw_success = $"../DrawSuccess"
-@onready var finish = $Finish
+@onready var finish = $HBoxContainer/VBoxContainer2/Become
 
 var brush_size
 
