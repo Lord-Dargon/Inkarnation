@@ -5,3 +5,6 @@ res://Scenes/level_13.tscn
 res://Prefabs/enemy.tscn
 res://Scenes/level_11.tscn
 res://Scenes/level_8.tscn
+res://Scenes/level_1.tscn
+res://Prefabs/ui.tscn
+res://Prefabs/drawing_canvas.tscn
