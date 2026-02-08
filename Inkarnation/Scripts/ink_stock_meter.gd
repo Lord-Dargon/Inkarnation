@@ -11,6 +11,20 @@ extends HBoxContainer
 var stocks:int = 0
 
 func _process(delta: float) -> void:
+	fill.self_modulate.h += 0.001
+	if fill.self_modulate.h >= 1:
+		fill.self_modulate.h = 0
+		
+	fill_2.self_modulate.h += 0.001
+	if fill_2.self_modulate.h >= 1:
+		fill_2.self_modulate.h = 0
+		
+	fill_3.self_modulate.h += 0.001
+	if fill_3.self_modulate.h >= 1:
+		fill_3.self_modulate.h = 0
+	
+	
+	
 	if stocks <= 0:
 		fill.hide()
 		fill.hide()

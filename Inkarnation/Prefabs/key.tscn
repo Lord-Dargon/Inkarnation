@@ -4,14 +4,13 @@
 [ext_resource type="Texture2D" uid="uid://cat4ila0l162l" path="res://Assets/Art/key.png" id="1_h3os2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7qdy2"]
-size = Vector2(42, 48)
+size = Vector2(25, 25)
 
 [node name="Key" type="Area2D"]
 collision_layer = 0
 script = ExtResource("1_5holy")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.0859375, 0.0716146)
 texture = ExtResource("1_h3os2")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

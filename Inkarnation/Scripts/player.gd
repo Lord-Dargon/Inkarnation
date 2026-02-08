@@ -115,9 +115,6 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("Restart"):
 		LevelController.restart()
 		
-	if Input.is_action_just_pressed("Debug"):
-		LevelController.unlock()
-		
 	var direction = Vector2(Input.get_axis("Left", "Right"), Input.get_axis("Up", "Down")).normalized()
 	if direction:
 		velocity = direction * move_speed

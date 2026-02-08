@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=4 uid="uid://bq0qqo6o8wtfy"]
+[gd_scene load_steps=14 format=4 uid="uid://bq0qqo6o8wtfy"]
 
 [ext_resource type="Texture2D" uid="uid://duy7swxp3kwqc" path="res://Assets/Art/Water_Autotile.png" id="7_i6dbo"]
 [ext_resource type="PackedScene" uid="uid://cj3w8ipfa854q" path="res://Prefabs/ui.tscn" id="7_lsmp6"]
@@ -178,9 +178,6 @@ terrain_set_0/terrain_0/name = "Chasm"
 terrain_set_0/terrain_0/color = Color(0, 0, 0, 1)
 sources/1 = SubResource("TileSetAtlasSource_6r07y")
 
-[sub_resource type="LabelSettings" id="LabelSettings_6r07y"]
-font_size = 30
-
 [sub_resource type="GDScript" id="GDScript_uy8f0"]
 resource_name = "Tutorial"
 script/source = "extends Area2D
@@ -223,10 +220,19 @@ offset_top = -79.0
 offset_right = 176.0
 offset_bottom = -37.0
 text = "I can't swim, bummer."
-label_settings = SubResource("LabelSettings_6r07y")
 visible_characters = 0
 visible_ratio = 0.0
 script = ExtResource("12_4k5rq")
+
+[node name="Label" type="Label" parent="Player/Label"]
+top_level = true
+layout_mode = 0
+offset_left = 899.0
+offset_top = 83.0
+offset_right = 942.0
+offset_bottom = 138.0
+rotation = -0.611895
+text = "->"
 
 [node name="Timer" type="Timer" parent="Player/Label"]
 wait_time = 10.0

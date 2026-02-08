@@ -4,3 +4,12 @@ res://Prefabs/enemy.tscn
 res://Scenes/level_8.tscn
 res://Scenes/level_5.tscn
 res://Scenes/main_menu.tscn
+res://System_Theme.tres
+res://Prefabs/ui.tscn
+res://Scenes/level_10.tscn
+res://Prefabs/key.tscn
+res://Prefabs/boulder.tscn
+res://Scripts/ink_stock_meter.gd
+res://Prefabs/ink.tscn
+res://Scripts/player.gd
+res://Prefabs/drawing_canvas.tscn

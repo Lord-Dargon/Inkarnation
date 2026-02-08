@@ -30,6 +30,11 @@ Goal=""
 Collectable=""
 Boulders=""
 
+[gui]
+
+theme/custom="uid://dq6ql5yaf4bcv"
+theme/custom_font="uid://7dfqy2wxr8qj"
+
 [input]
 
 Left={
