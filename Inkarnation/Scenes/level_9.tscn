@@ -2,11 +2,11 @@
 
 [ext_resource type="Script" uid="uid://docg58c6i15i8" path="res://Scripts/stairs.gd" id="1_qv3nj"]
 [ext_resource type="Texture2D" uid="uid://chry1xek4ocrn" path="res://Assets/Art/Stairs.png" id="2_066uc"]
-[ext_resource type="PackedScene" path="res://Prefabs/ui.tscn" id="3_exqje"]
+[ext_resource type="PackedScene" uid="uid://cj3w8ipfa854q" path="res://Prefabs/ui.tscn" id="3_exqje"]
 [ext_resource type="TileSet" uid="uid://dtjvn0opdqu0n" path="res://Assets/Tilesets/Wall_Tileset.tres" id="4_basfb"]
 [ext_resource type="Texture2D" uid="uid://duy7swxp3kwqc" path="res://Assets/Art/Water_Autotile.png" id="5_frqt4"]
 [ext_resource type="PackedScene" uid="uid://nd5gt6qipdyy" path="res://Prefabs/enemy.tscn" id="6_f7d2o"]
-[ext_resource type="PackedScene" path="res://Prefabs/player.tscn" id="7_cg3q6"]
+[ext_resource type="PackedScene" uid="uid://ba8obanlw5sjt" path="res://Prefabs/player.tscn" id="7_cg3q6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xrdnt"]
 size = Vector2(16, 16)
@@ -138,11 +138,16 @@ tile_set = SubResource("TileSet_6444e")
 [node name="Enemy" parent="." instance=ExtResource("6_f7d2o")]
 position = Vector2(186, 281)
 collision_mask = 128
+speed_value = 0
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
 navigation_polygon = SubResource("NavigationPolygon_a0bmv")
 
 [node name="Player" parent="." instance=ExtResource("7_cg3q6")]
 position = Vector2(45, 762)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+anchor_mode = 0
+zoom = Vector2(0.57, 0.57)
 
 [connection signal="body_entered" from="Stairs" to="Stairs" method="body_entered"]

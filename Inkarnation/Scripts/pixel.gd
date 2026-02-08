@@ -1,6 +1,7 @@
 extends ColorRect
 
 var active = false
+var stuck = false
 var value = 0
 
 @export var Foreground_Color:Color
@@ -42,7 +43,7 @@ func _process(_delta):
 
 
 func _input(event: InputEvent) -> void:
-	if active == false:
+	if active == false or stuck == true:
 		return
 	
 	if Input.is_action_pressed("Draw"):
@@ -56,5 +57,11 @@ func _input(event: InputEvent) -> void:
 		
 func get_current_value() -> int:
 	return value
+
+	
+func set_stuck():
+	stuck = true
+	value = 1
+	color = Foreground_Color
 	
 	

@@ -4,7 +4,7 @@ extends CharacterBody2D
 
 @export var speed_value = 3
 var speed_scale = 150
-var movement_speed = speed_value * speed_scale
+@onready var movement_speed = speed_value * speed_scale
 @export var nav_agent: NavigationAgent2D
 
 @export var path_target: Node2D

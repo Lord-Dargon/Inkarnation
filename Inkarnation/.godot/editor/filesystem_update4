@@ -14,3 +14,6 @@ res://Prefabs/ink.tscn
 res://Scripts/player.gd
 res://Prefabs/drawing_canvas.tscn
 res://Scripts/drawing_canvas.gd
+res://Scenes/level_9.tscn
+res://Scripts/enemy.gd
+res://Scripts/pixel.gd
